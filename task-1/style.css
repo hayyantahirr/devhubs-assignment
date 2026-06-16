@@ -4,3 +4,19 @@
   box-sizing: border-box;
   /* border: 1px solid red; */
 }
+nav{
+  border-color:#03a9f4;
+}
+.navbar{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.nav-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
