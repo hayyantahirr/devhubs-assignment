@@ -12,9 +12,7 @@
     <header class="w-full bg-white">
       <!-- Row 1: Main Header -->
       <div class="border-b border-[#E3E8EE]">
-        <div
-          class="max-w-[1200px] mx-auto px-4 md:px-6 h-[72px] flex items-center justify-between gap-4"
-        >
+        <div class="container-custom h-[76px] flex items-center justify-between gap-4">
           <!-- Left: Hamburger & Logo -->
           <div class="flex items-center gap-3">
             <!-- Hamburger Icon (Mobile drawer toggle) -->
@@ -26,7 +24,7 @@
               <img
                 src="./assets/assets/navbar-icons/hamburger.svg"
                 alt="Menu"
-                class="w-6 h-6"
+                class="w-7 h-7"
               />
             </button>
 
@@ -35,19 +33,19 @@
               <img
                 src="./assets/assets/Layout/Brand/logo-colored.png"
                 alt="Brand Logo"
-                class="h-[36px] md:h-[40px] object-contain"
+                class="h-[40px] md:h-[44px] object-contain"
               />
             </a>
           </div>
 
           <!-- Center: Search Bar -->
           <form
-            class="hidden md:flex flex-grow max-w-[620px] border-2 border-[#127FFF] rounded-lg overflow-hidden h-[40px] bg-white items-center"
+            class="hidden md:flex flex-grow max-w-[620px] border-2 border-[#127FFF] rounded-lg overflow-hidden h-[46px] bg-white items-center shadow-sm"
           >
             <input
               type="text"
               placeholder="Search"
-              class="flex-grow px-4 h-full outline-none text-sm text-[#1C1C1C] placeholder-[#8B96A5]"
+              class="flex-grow px-4 h-full outline-none text-sm md:text-base text-[#1C1C1C] placeholder-[#8B96A5]"
             />
 
             <!-- Categories Select Dropdown -->
@@ -56,7 +54,7 @@
             >
               <select
                 name="categories"
-                class="search-select h-full bg-white text-sm text-[#1C1C1C] pl-4 pr-10 outline-none cursor-pointer font-normal"
+                class="search-select h-full bg-white text-sm md:text-base text-[#1C1C1C] pl-4 pr-10 outline-none cursor-pointer font-medium"
               >
                 <option value="" selected>All category</option>
                 <option value="Electronics">Electronics</option>
@@ -68,63 +66,63 @@
             <!-- Search Button -->
             <button
               type="submit"
-              class="bg-[#127FFF] text-white px-6 h-full text-sm font-semibold hover:bg-[#0067FF] transition-colors cursor-pointer border-l border-[#127FFF]"
+              class="bg-[#127FFF] text-white px-8 h-full text-base font-bold hover:bg-[#0067FF] transition-colors cursor-pointer border-l border-[#127FFF]"
             >
               Search
             </button>
           </form>
 
           <!-- Right: User Action Items -->
-          <div class="flex items-center gap-4 md:gap-6">
+          <div class="flex items-center gap-5 md:gap-7">
             <a
               href="#"
-              class="flex flex-col items-center gap-1 text-[#8B96A5] hover:text-[#127FFF] transition-all duration-150 group"
+              class="flex flex-col items-center gap-1.5 text-[#8B96A5] hover:text-[#127FFF] transition-all duration-150 group"
             >
               <img
                 src="./assets/assets/navbar-icons/profile.svg"
                 alt="Profile"
-                class="w-[20px] h-[20px] opacity-80 group-hover:opacity-100"
+                class="w-[24px] h-[24px] opacity-80 group-hover:opacity-100"
               />
-              <span class="text-[12px] font-medium hidden lg:inline"
+              <span class="text-[13px] font-semibold hidden lg:inline"
                 >Profile</span
               >
             </a>
             <a
               href="#"
-              class="flex flex-col items-center gap-1 text-[#8B96A5] hover:text-[#127FFF] transition-all duration-150 group"
+              class="flex flex-col items-center gap-1.5 text-[#8B96A5] hover:text-[#127FFF] transition-all duration-150 group"
             >
               <img
                 src="./assets/assets/navbar-icons/message.svg"
                 alt="Message"
-                class="w-[20px] h-[20px] opacity-80 group-hover:opacity-100"
+                class="w-[24px] h-[24px] opacity-80 group-hover:opacity-100"
               />
-              <span class="text-[12px] font-medium hidden lg:inline"
+              <span class="text-[13px] font-semibold hidden lg:inline"
                 >Message</span
               >
             </a>
             <a
               href="#"
-              class="flex flex-col items-center gap-1 text-[#8B96A5] hover:text-[#127FFF] transition-all duration-150 group"
+              class="flex flex-col items-center gap-1.5 text-[#8B96A5] hover:text-[#127FFF] transition-all duration-150 group"
             >
               <img
                 src="./assets/assets/navbar-icons/heart(orders).svg"
                 alt="Orders"
-                class="w-[20px] h-[20px] opacity-80 group-hover:opacity-100"
+                class="w-[24px] h-[24px] opacity-80 group-hover:opacity-100"
               />
-              <span class="text-[12px] font-medium hidden lg:inline"
+              <span class="text-[13px] font-semibold hidden lg:inline"
                 >Orders</span
               >
             </a>
             <a
               href="#"
-              class="flex flex-col items-center gap-1 text-[#8B96A5] hover:text-[#127FFF] transition-all duration-150 group"
+              class="flex flex-col items-center gap-1.5 text-[#8B96A5] hover:text-[#127FFF] transition-all duration-150 group"
             >
               <img
                 src="./assets/assets/navbar-icons/cart.svg"
                 alt="My cart"
-                class="w-[20px] h-[20px] opacity-80 group-hover:opacity-100"
+                class="w-[24px] h-[24px] opacity-80 group-hover:opacity-100"
               />
-              <span class="text-[12px] font-medium hidden lg:inline"
+              <span class="text-[13px] font-semibold hidden lg:inline"
                 >My cart</span
               >
             </a>
@@ -135,7 +133,7 @@
       <!-- Row 2: Sub-navigation (Desktop only) -->
       <div class="border-b border-[#E3E8EE] hidden lg:block">
         <div
-          class="max-w-[1200px] mx-auto px-6 h-[56px] flex items-center justify-between"
+          class="container-custom h-[56px] flex items-center justify-between"
         >
           <!-- Left Navigation Links -->
           <div class="flex items-center gap-6">
@@ -552,7 +550,7 @@
     </div>
 
     <!-- MAIN BODY CONTENT -->
-    <main class="max-w-[1200px] mx-auto px-4 md:px-6 py-6 flex flex-col gap-6">
+    <main class="container-custom py-6 flex flex-col gap-6">
       <!-- HERO CONTAINER -->
       <section
         class="bg-white border border-[#E3E8EE] rounded-lg p-4 flex flex-col lg:flex-row gap-4"
@@ -632,7 +630,7 @@
               Electronic items
             </h2>
             <button
-              class="bg-white text-[#1C1C1C] px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-[#F7FAFC] transition-all shadow-sm cursor-pointer w-fit mt-2 border border-[#E3E8EE]"
+              class="bg-white text-[#127FFF] px-7 py-3 rounded-lg text-base font-bold hover:bg-[#127FFF] hover:text-white transition-all duration-200 shadow-md cursor-pointer w-fit mt-2 border-2 border-[#127FFF]"
             >
               Source now
             </button>
@@ -1538,7 +1536,7 @@
     <!-- FOOTER -->
     <footer class="bg-white border-t border-[#E3E8EE] mt-12 py-12">
       <div
-        class="max-w-[1200px] mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8"
+        class="container-custom grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8"
       >
         <!-- Brand Summary Column -->
         <div class="lg:col-span-2 flex flex-col gap-4">
@@ -1652,7 +1650,7 @@
 
       <!-- Copyright Bottom Bar -->
       <div
-        class="max-w-[1200px] mx-auto px-4 md:px-6 border-t border-[#E3E8EE] mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4"
+        class="container-custom border-t border-[#E3E8EE] mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4"
       >
         <p class="text-sm text-[#505050]">
           &copy; 2026 BrandStore. All rights reserved.
