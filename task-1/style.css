@@ -4,17 +4,34 @@
   box-sizing: border-box;
   /* border: 1px solid red; */
 }
-nav{
-  border-color:#03a9f4;
+nav {
+  border-color: #03a9f4;
+  width: 80%;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  margin-left: auto;
+  margin-right: auto;
 }
-.nav-div-1{
+.nav-div-1 {
   margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  width: 100%;
 }
-.nav-list{
+.nav-div-2 {
+  border-top: 1px solid gray ;
+  padding-top: 10px;
+  margin-top: 20px;
+  display: flex;
+  width: 91.5%;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.nav-list {
   display: flex;
   justify-content: center;
   align-items: center;
