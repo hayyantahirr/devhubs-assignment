@@ -12,7 +12,9 @@
     <header class="w-full bg-white">
       <!-- Row 1: Main Header -->
       <div class="border-b border-[#E3E8EE]">
-        <div class="container-custom h-[76px] flex items-center justify-between gap-4">
+        <div
+          class="container-custom h-[76px] flex items-center justify-between gap-4"
+        >
           <!-- Left: Hamburger & Logo -->
           <div class="flex items-center gap-3">
             <!-- Hamburger Icon (Mobile drawer toggle) -->
@@ -54,7 +56,7 @@
             >
               <select
                 name="categories"
-                class="search-select h-full bg-white text-sm md:text-base text-[#1C1C1C]  outline-none cursor-pointer font-medium"
+                class="search-select h-full bg-white text-sm md:text-base text-[#1C1C1C] outline-none cursor-pointer font-medium"
               >
                 <option value="" selected>All category</option>
                 <option value="Electronics">Electronics</option>
@@ -89,7 +91,7 @@
             </a>
             <a
               href="#"
-              class="flex flex-col items-center gap-1.5 text-[#8B96A5] hover:text-[#127FFF] transition-all duration-150 group"
+              class="hidden sm:flex flex-col items-center gap-1.5 text-[#8B96A5] hover:text-[#127FFF] transition-all duration-150 group"
             >
               <img
                 src="./assets/assets/navbar-icons/message.svg"
@@ -102,7 +104,7 @@
             </a>
             <a
               href="#"
-              class="flex flex-col items-center gap-1.5 text-[#8B96A5] hover:text-[#127FFF] transition-all duration-150 group"
+              class="hidden sm:flex flex-col items-center gap-1.5 text-[#8B96A5] hover:text-[#127FFF] transition-all duration-150 group"
             >
               <img
                 src="./assets/assets/navbar-icons/heart(orders).svg"
@@ -501,6 +503,29 @@
               class="text-[#1C1C1C] font-medium text-sm py-2.5 px-3 rounded-lg hover:bg-[#F7FAFC] hover:text-[#127FFF] transition-all"
               >Help Center</a
             >
+            <hr class="border-[#E3E8EE] my-2 lg:hidden" />
+            <a
+              href="#"
+              class="flex items-center gap-3 text-[#1C1C1C] font-medium text-sm py-2.5 px-3 rounded-lg hover:bg-[#F7FAFC] hover:text-[#127FFF] transition-all"
+            >
+              <img
+                src="./assets/assets/navbar-icons/message.svg"
+                alt="Message"
+                class="w-5 h-5 opacity-70"
+              />
+              <span>Messages</span>
+            </a>
+            <a
+              href="#"
+              class="flex items-center gap-3 text-[#1C1C1C] font-medium text-sm py-2.5 px-3 rounded-lg hover:bg-[#F7FAFC] hover:text-[#127FFF] transition-all"
+            >
+              <img
+                src="./assets/assets/navbar-icons/heart(orders).svg"
+                alt="Orders"
+                class="w-5 h-5 opacity-70"
+              />
+              <span>Orders</span>
+            </a>
           </nav>
 
           <!-- Drawer Dropdowns / Selects -->
@@ -606,7 +631,7 @@
 
         <!-- Main Banner Carousel Area -->
         <div
-          class="flex-grow relative rounded-md overflow-hidden bg-[#E5F1FF] min-h-[300px] lg:min-h-[380px] p-6 lg:p-12 flex flex-col justify-center items-start"
+          class="flex-grow relative rounded-md overflow-hidden bg-[#E5F1FF] min-h-[240px] md:min-h-[300px] lg:min-h-[380px] p-6 lg:p-12 flex flex-col justify-center items-start"
         >
           <img
             src="./assets/assets/Image/backgrounds/Banner-board-800x420 2.png"
@@ -699,7 +724,7 @@
       >
         <!-- Countdown Area -->
         <div
-          class="p-4 md:w-[260px] shrink-0 border-b md:border-b-0 md:border-r border-[#E3E8EE] flex flex-row md:flex-col justify-between md:justify-start gap-4"
+          class="p-4 md:w-[260px] shrink-0 border-b md:border-b-0 md:border-r border-[#E3E8EE] flex flex-col sm:flex-row md:flex-col justify-between md:justify-start gap-4"
         >
           <div>
             <h4 class="text-lg font-bold text-[#1C1C1C]">Deals and offers</h4>
@@ -744,17 +769,17 @@
 
         <!-- Deals Products Grid -->
         <div
-          class="flex-grow grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 divide-x divide-[#E3E8EE]"
+          class="flex-grow flex overflow-x-auto no-scrollbar md:grid md:grid-cols-3 lg:grid-cols-5 bg-white md:bg-[#E3E8EE] gap-0 md:gap-[1px] divide-x divide-[#E3E8EE] md:divide-none"
         >
           <!-- Item 1 -->
           <a
             href="#"
-            class="p-5 flex flex-col items-center justify-center text-center gap-3 hover:shadow-md transition-shadow"
+            class="p-5 flex flex-col items-center justify-center text-center gap-3 hover:shadow-md transition-shadow bg-white shrink-0 w-[140px] md:w-auto"
           >
             <img
               src="./assets/assets/Image/tech/image 32.png"
               alt="Smartwatches"
-              class="h-[120px] object-contain"
+              class="h-[80px] md:h-[120px] object-contain"
             />
             <div class="flex flex-col gap-1">
               <span class="text-[#1C1C1C] text-sm font-medium"
@@ -769,12 +794,12 @@
           <!-- Item 2 -->
           <a
             href="#"
-            class="p-5 flex flex-col items-center justify-center text-center gap-3 hover:shadow-md transition-shadow"
+            class="p-5 flex flex-col items-center justify-center text-center gap-3 hover:shadow-md transition-shadow bg-white shrink-0 w-[140px] md:w-auto"
           >
             <img
               src="./assets/assets/Image/tech/image 33.png"
               alt="Laptops"
-              class="h-[120px] object-contain"
+              class="h-[80px] md:h-[120px] object-contain"
             />
             <div class="flex flex-col gap-1">
               <span class="text-[#1C1C1C] text-sm font-medium">Laptops</span>
@@ -787,12 +812,12 @@
           <!-- Item 3 -->
           <a
             href="#"
-            class="p-5 flex flex-col items-center justify-center text-center gap-3 hover:shadow-md transition-shadow"
+            class="p-5 flex flex-col items-center justify-center text-center gap-3 hover:shadow-md transition-shadow bg-white shrink-0 w-[140px] md:w-auto"
           >
             <img
               src="./assets/assets/Image/tech/image 34.png"
               alt="GoPro Cameras"
-              class="h-[120px] object-contain"
+              class="h-[80px] md:h-[120px] object-contain"
             />
             <div class="flex flex-col gap-1">
               <span class="text-[#1C1C1C] text-sm font-medium"
@@ -807,12 +832,12 @@
           <!-- Item 4 -->
           <a
             href="#"
-            class="p-5 flex flex-col items-center justify-center text-center gap-3 hover:shadow-md transition-shadow"
+            class="p-5 flex flex-col items-center justify-center text-center gap-3 hover:shadow-md transition-shadow bg-white shrink-0 w-[140px] md:w-auto"
           >
             <img
               src="./assets/assets/Image/tech/image 23.png"
               alt="Headphones"
-              class="h-[120px] object-contain"
+              class="h-[80px] md:h-[120px] object-contain"
             />
             <div class="flex flex-col gap-1">
               <span class="text-[#1C1C1C] text-sm font-medium">Headphones</span>
@@ -825,12 +850,12 @@
           <!-- Item 5 -->
           <a
             href="#"
-            class="p-5 flex flex-col items-center justify-center text-center gap-3 hover:shadow-md transition-shadow"
+            class="p-5 flex flex-col items-center justify-center text-center gap-3 hover:shadow-md transition-shadow bg-white shrink-0 w-[140px] md:w-auto"
           >
             <img
               src="./assets/assets/Image/tech/image 29.png"
               alt="Smartphones"
-              class="h-[120px] object-contain"
+              class="h-[80px] md:h-[120px] object-contain"
             />
             <div class="flex flex-col gap-1">
               <span class="text-[#1C1C1C] text-sm font-medium"
@@ -874,12 +899,12 @@
 
         <!-- Products Grid (8 Items) -->
         <div
-          class="flex-grow grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 divide-x divide-y divide-[#E3E8EE]"
+          class="flex-grow grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 bg-[#E3E8EE] gap-[1px]"
         >
           <!-- Item 1 -->
           <a
             href="#"
-            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative"
+            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
               <span class="text-[#1C1C1C] text-sm font-medium"
@@ -896,7 +921,7 @@
           <!-- Item 2 -->
           <a
             href="#"
-            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative"
+            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
               <span class="text-[#1C1C1C] text-sm font-medium"
@@ -913,7 +938,7 @@
           <!-- Item 3 -->
           <a
             href="#"
-            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative"
+            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
               <span class="text-[#1C1C1C] text-sm font-medium"
@@ -930,7 +955,7 @@
           <!-- Item 4 -->
           <a
             href="#"
-            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative"
+            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
               <span class="text-[#1C1C1C] text-sm font-medium"
@@ -947,7 +972,7 @@
           <!-- Item 5 -->
           <a
             href="#"
-            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative"
+            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
               <span class="text-[#1C1C1C] text-sm font-medium"
@@ -964,7 +989,7 @@
           <!-- Item 6 -->
           <a
             href="#"
-            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative"
+            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
               <span class="text-[#1C1C1C] text-sm font-medium"
@@ -981,7 +1006,7 @@
           <!-- Item 7 -->
           <a
             href="#"
-            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative"
+            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
               <span class="text-[#1C1C1C] text-sm font-medium"
@@ -998,7 +1023,7 @@
           <!-- Item 8 -->
           <a
             href="#"
-            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative"
+            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
               <span class="text-[#1C1C1C] text-sm font-medium"
@@ -1044,12 +1069,12 @@
 
         <!-- Products Grid (8 Items) -->
         <div
-          class="flex-grow grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 divide-x divide-y divide-[#E3E8EE]"
+          class="flex-grow grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 bg-[#E3E8EE] gap-[1px]"
         >
           <!-- Item 1 -->
           <a
             href="#"
-            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative"
+            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
               <span class="text-[#1C1C1C] text-sm font-medium"
@@ -1066,7 +1091,7 @@
           <!-- Item 2 -->
           <a
             href="#"
-            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative"
+            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
               <span class="text-[#1C1C1C] text-sm font-medium"
@@ -1083,7 +1108,7 @@
           <!-- Item 3 -->
           <a
             href="#"
-            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative"
+            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
               <span class="text-[#1C1C1C] text-sm font-medium">Headphones</span>
@@ -1098,7 +1123,7 @@
           <!-- Item 4 -->
           <a
             href="#"
-            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative"
+            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
               <span class="text-[#1C1C1C] text-sm font-medium"
@@ -1115,7 +1140,7 @@
           <!-- Item 5 -->
           <a
             href="#"
-            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative"
+            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
               <span class="text-[#1C1C1C] text-sm font-medium"
@@ -1132,7 +1157,7 @@
           <!-- Item 6 -->
           <a
             href="#"
-            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative"
+            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
               <span class="text-[#1C1C1C] text-sm font-medium">Laptops</span>
@@ -1147,7 +1172,7 @@
           <!-- Item 7 -->
           <a
             href="#"
-            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative"
+            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
               <span class="text-[#1C1C1C] text-sm font-medium"
@@ -1164,7 +1189,7 @@
           <!-- Item 8 -->
           <a
             href="#"
-            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative"
+            class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
               <span class="text-[#1C1C1C] text-sm font-medium"
@@ -1582,22 +1607,22 @@
           <a
             href="#"
             class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors"
-            >About Us</a
+            >Supplier Registration</a
           >
           <a
             href="#"
             class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors"
-            >Find Store</a
+            >Merchant Portal</a
           >
           <a
             href="#"
             class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors"
-            >Categories</a
+            >Affiliate Program</a
           >
           <a
             href="#"
             class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors"
-            >Blogs</a
+            >Custom Sourcing</a
           >
         </div>
 
