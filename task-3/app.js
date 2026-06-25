@@ -683,6 +683,7 @@ function initializeListingPage() {
     render();
   };
 
+
   // PRICE RANGE APPLIER
   window.applyPriceFilter = function() {
     minPrice = parseFloat(priceMinInput.value) || null;
@@ -1047,6 +1048,18 @@ function initializeListingPage() {
     localStorage.setItem("brandstore_favorites", JSON.stringify(favorites));
     render();
   };
+
+  function updateCategoryCountBadges() {
+    const countAll = document.getElementById("count-all");
+    const countElectronics = document.getElementById("count-electronics");
+    const countClothing = document.getElementById("count-clothing");
+    const countInterior = document.getElementById("count-interior");
+
+    if (countAll) countAll.textContent = productsData.length;
+    if (countElectronics) countElectronics.textContent = productsData.filter(p => p.category === "electronics").length;
+    if (countClothing) countClothing.textContent = productsData.filter(p => p.category === "clothing").length;
+    if (countInterior) countInterior.textContent = productsData.filter(p => p.category === "interior").length;
+  }
 
   // URL Sync
   const urlParams = new URLSearchParams(window.location.search);
@@ -1566,3 +1579,15 @@ function showNotification(message) {
     }, 300);
   }, 3500);
 }
+
+// Global Accordion toggler for sidebar filters (available immediately)
+window.toggleAccordion = function(filterId) {
+  const content = document.getElementById(filterId);
+  const icon = document.getElementById(filterId + "-icon");
+  if (!content) return;
+
+  content.classList.toggle("hidden");
+  if (icon) {
+    icon.classList.toggle("rotate-180");
+  }
+};
