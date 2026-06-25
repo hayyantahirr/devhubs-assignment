@@ -12,11 +12,11 @@
         transition: all 0.15s ease-in-out;
       }
       .filter-badge:hover {
-        background-color: #E5F1FF;
-        color: #127FFF;
+        background-color: #e5f1ff;
+        color: #127fff;
       }
       .star-rating {
-        color: #FFB200;
+        color: #ffb200;
       }
     </style>
   </head>
@@ -474,123 +474,267 @@
     <main class="container-custom py-6 flex flex-col gap-5">
       <!-- BREADCRUMBS -->
       <nav class="text-sm text-[#8B96A5] flex gap-2 items-center">
-        <a href="index.html" class="hover:text-[#127FFF] transition-colors">Home</a>
+        <a href="index.html" class="hover:text-[#127FFF] transition-colors"
+          >Home</a
+        >
         <span>&gt;</span>
-        <span class="hover:text-[#127FFF] transition-colors cursor-pointer">All Products</span>
+        <span class="hover:text-[#127FFF] transition-colors cursor-pointer"
+          >All Products</span
+        >
         <span>&gt;</span>
-        <span id="breadcrumb-category" class="text-[#1C1C1C] font-medium">Electronics</span>
+        <span id="breadcrumb-category" class="text-[#1C1C1C] font-medium"
+          >Electronics</span
+        >
       </nav>
 
       <!-- TWO-COLUMN WORKSPACE -->
       <div class="flex flex-col lg:flex-row gap-6 items-start">
-        
         <!-- SIDEBAR FILTERS (Left column) -->
-        <aside class="w-full lg:w-[240px] bg-transparent flex flex-col gap-4 shrink-0">
-          
+        <aside
+          class="w-full lg:w-[240px] bg-transparent flex flex-col gap-4 shrink-0"
+        >
           <!-- Category Filter Accordion -->
-          <div class="bg-white border border-[#E3E8EE] rounded-lg overflow-hidden">
+          <div
+            class="bg-white border border-[#E3E8EE] rounded-lg overflow-hidden"
+          >
             <button
               class="w-full px-4 py-3 flex justify-between items-center border-b border-[#E3E8EE] font-bold text-sm text-[#1C1C1C] bg-white cursor-pointer hover:bg-[#F7FAFC] transition-colors"
               onclick="toggleAccordion('category-filter')"
             >
               <span>Category</span>
-              <svg class="w-4 h-4 transform transition-transform" id="category-filter-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path></svg>
+              <svg
+                class="w-4 h-4 transform transition-transform"
+                id="category-filter-icon"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 15l7-7 7 7"
+                ></path>
+              </svg>
             </button>
             <div class="p-4 flex flex-col gap-2.5 text-sm" id="category-filter">
-              <button onclick="setCategoryFilter('all')" class="text-left font-medium hover:text-[#127FFF] filter-badge px-2 py-1.5 rounded-md flex justify-between items-center w-full" id="cat-all">
+              <button
+                onclick="setCategoryFilter('all')"
+                class="text-left font-medium hover:text-[#127FFF] filter-badge px-2 py-1.5 rounded-md flex justify-between items-center w-full"
+                id="cat-all"
+              >
                 <span>All Categories</span>
                 <span class="text-xs text-[#8B96A5]" id="count-all">22</span>
               </button>
-              <button onclick="setCategoryFilter('electronics')" class="text-left hover:text-[#127FFF] filter-badge px-2 py-1.5 rounded-md flex justify-between items-center w-full" id="cat-electronics">
+              <button
+                onclick="setCategoryFilter('electronics')"
+                class="text-left hover:text-[#127FFF] filter-badge px-2 py-1.5 rounded-md flex justify-between items-center w-full"
+                id="cat-electronics"
+              >
                 <span>Electronics</span>
-                <span class="text-xs text-[#8B96A5]" id="count-electronics">9</span>
+                <span class="text-xs text-[#8B96A5]" id="count-electronics"
+                  >9</span
+                >
               </button>
-              <button onclick="setCategoryFilter('clothing')" class="text-left hover:text-[#127FFF] filter-badge px-2 py-1.5 rounded-md flex justify-between items-center w-full" id="cat-clothing">
+              <button
+                onclick="setCategoryFilter('clothing')"
+                class="text-left hover:text-[#127FFF] filter-badge px-2 py-1.5 rounded-md flex justify-between items-center w-full"
+                id="cat-clothing"
+              >
                 <span>Clothing</span>
-                <span class="text-xs text-[#8B96A5]" id="count-clothing">6</span>
+                <span class="text-xs text-[#8B96A5]" id="count-clothing"
+                  >6</span
+                >
               </button>
-              <button onclick="setCategoryFilter('interior')" class="text-left hover:text-[#127FFF] filter-badge px-2 py-1.5 rounded-md flex justify-between items-center w-full" id="cat-interior">
+              <button
+                onclick="setCategoryFilter('interior')"
+                class="text-left hover:text-[#127FFF] filter-badge px-2 py-1.5 rounded-md flex justify-between items-center w-full"
+                id="cat-interior"
+              >
                 <span>Interior Design</span>
-                <span class="text-xs text-[#8B96A5]" id="count-interior">7</span>
+                <span class="text-xs text-[#8B96A5]" id="count-interior"
+                  >7</span
+                >
               </button>
             </div>
           </div>
 
           <!-- Brands Filter Checkboxes -->
-          <div class="bg-white border border-[#E3E8EE] rounded-lg overflow-hidden">
+          <div
+            class="bg-white border border-[#E3E8EE] rounded-lg overflow-hidden"
+          >
             <button
               class="w-full px-4 py-3 flex justify-between items-center border-b border-[#E3E8EE] font-bold text-sm text-[#1C1C1C] bg-white cursor-pointer hover:bg-[#F7FAFC] transition-colors"
               onclick="toggleAccordion('brand-filter')"
             >
               <span>Brands</span>
-              <svg class="w-4 h-4 transform transition-transform" id="brand-filter-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path></svg>
+              <svg
+                class="w-4 h-4 transform transition-transform"
+                id="brand-filter-icon"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 15l7-7 7 7"
+                ></path>
+              </svg>
             </button>
             <div class="p-4 flex flex-col gap-3 text-sm" id="brand-filter">
-              <label class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]">
-                <input type="checkbox" value="Sony" class="brand-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]" />
+              <label
+                class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]"
+              >
+                <input
+                  type="checkbox"
+                  value="Sony"
+                  class="brand-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]"
+                />
                 <span>Sony</span>
               </label>
-              <label class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]">
-                <input type="checkbox" value="Apple" class="brand-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]" />
+              <label
+                class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]"
+              >
+                <input
+                  type="checkbox"
+                  value="Apple"
+                  class="brand-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]"
+                />
                 <span>Apple</span>
               </label>
-              <label class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]">
-                <input type="checkbox" value="Samsung" class="brand-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]" />
+              <label
+                class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]"
+              >
+                <input
+                  type="checkbox"
+                  value="Samsung"
+                  class="brand-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]"
+                />
                 <span>Samsung</span>
               </label>
-              <label class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]">
-                <input type="checkbox" value="Canon" class="brand-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]" />
+              <label
+                class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]"
+              >
+                <input
+                  type="checkbox"
+                  value="Canon"
+                  class="brand-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]"
+                />
                 <span>Canon</span>
               </label>
-              <label class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]">
-                <input type="checkbox" value="Xiaomi" class="brand-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]" />
+              <label
+                class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]"
+              >
+                <input
+                  type="checkbox"
+                  value="Xiaomi"
+                  class="brand-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]"
+                />
                 <span>Xiaomi</span>
               </label>
             </div>
           </div>
 
           <!-- Features Filter Checkboxes -->
-          <div class="bg-white border border-[#E3E8EE] rounded-lg overflow-hidden">
+          <div
+            class="bg-white border border-[#E3E8EE] rounded-lg overflow-hidden"
+          >
             <button
               class="w-full px-4 py-3 flex justify-between items-center border-b border-[#E3E8EE] font-bold text-sm text-[#1C1C1C] bg-white cursor-pointer hover:bg-[#F7FAFC] transition-colors"
               onclick="toggleAccordion('features-filter')"
             >
               <span>Features</span>
-              <svg class="w-4 h-4 transform transition-transform" id="features-filter-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path></svg>
+              <svg
+                class="w-4 h-4 transform transition-transform"
+                id="features-filter-icon"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 15l7-7 7 7"
+                ></path>
+              </svg>
             </button>
             <div class="p-4 flex flex-col gap-3 text-sm" id="features-filter">
-              <label class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]">
-                <input type="checkbox" value="Metallic" class="feature-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]" />
+              <label
+                class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]"
+              >
+                <input
+                  type="checkbox"
+                  value="Metallic"
+                  class="feature-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]"
+                />
                 <span>Metallic</span>
               </label>
-              <label class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]">
-                <input type="checkbox" value="Plastic" class="feature-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]" />
+              <label
+                class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]"
+              >
+                <input
+                  type="checkbox"
+                  value="Plastic"
+                  class="feature-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]"
+                />
                 <span>Plastic</span>
               </label>
-              <label class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]">
-                <input type="checkbox" value="Leather" class="feature-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]" />
+              <label
+                class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]"
+              >
+                <input
+                  type="checkbox"
+                  value="Leather"
+                  class="feature-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]"
+                />
                 <span>Leather</span>
               </label>
-              <label class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]">
-                <input type="checkbox" value="Smart" class="feature-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]" />
+              <label
+                class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]"
+              >
+                <input
+                  type="checkbox"
+                  value="Smart"
+                  class="feature-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]"
+                />
                 <span>Smart Devices</span>
               </label>
             </div>
           </div>
 
           <!-- Price Range Filter -->
-          <div class="bg-white border border-[#E3E8EE] rounded-lg overflow-hidden">
+          <div
+            class="bg-white border border-[#E3E8EE] rounded-lg overflow-hidden"
+          >
             <button
               class="w-full px-4 py-3 flex justify-between items-center border-b border-[#E3E8EE] font-bold text-sm text-[#1C1C1C] bg-white cursor-pointer hover:bg-[#F7FAFC] transition-colors"
               onclick="toggleAccordion('price-filter')"
             >
               <span>Price Range</span>
-              <svg class="w-4 h-4 transform transition-transform" id="price-filter-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path></svg>
+              <svg
+                class="w-4 h-4 transform transition-transform"
+                id="price-filter-icon"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 15l7-7 7 7"
+                ></path>
+              </svg>
             </button>
             <div class="p-4 flex flex-col gap-3" id="price-filter">
               <div class="flex gap-2">
                 <div class="flex-grow">
-                  <label class="text-xs text-[#8B96A5] block mb-1">Min ($)</label>
+                  <label class="text-xs text-[#8B96A5] block mb-1"
+                    >Min ($)</label
+                  >
                   <input
                     type="number"
                     id="price-min"
@@ -599,7 +743,9 @@
                   />
                 </div>
                 <div class="flex-grow">
-                  <label class="text-xs text-[#8B96A5] block mb-1">Max ($)</label>
+                  <label class="text-xs text-[#8B96A5] block mb-1"
+                    >Max ($)</label
+                  >
                   <input
                     type="number"
                     id="price-max"
@@ -618,35 +764,71 @@
           </div>
 
           <!-- Ratings Filter Accordion -->
-          <div class="bg-white border border-[#E3E8EE] rounded-lg overflow-hidden">
+          <div
+            class="bg-white border border-[#E3E8EE] rounded-lg overflow-hidden"
+          >
             <button
               class="w-full px-4 py-3 flex justify-between items-center border-b border-[#E3E8EE] font-bold text-sm text-[#1C1C1C] bg-white cursor-pointer hover:bg-[#F7FAFC] transition-colors"
               onclick="toggleAccordion('rating-filter')"
             >
               <span>Ratings</span>
-              <svg class="w-4 h-4 transform transition-transform" id="rating-filter-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path></svg>
+              <svg
+                class="w-4 h-4 transform transition-transform"
+                id="rating-filter-icon"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 15l7-7 7 7"
+                ></path>
+              </svg>
             </button>
             <div class="p-4 flex flex-col gap-2.5" id="rating-filter">
               <label class="flex items-center gap-2.5 cursor-pointer text-sm">
-                <input type="radio" name="rating-sel" value="0" checked class="rating-radio accent-[#127FFF]" />
+                <input
+                  type="radio"
+                  name="rating-sel"
+                  value="0"
+                  checked
+                  class="rating-radio accent-[#127FFF]"
+                />
                 <span>All ratings</span>
               </label>
               <label class="flex items-center gap-2.5 cursor-pointer text-sm">
-                <input type="radio" name="rating-sel" value="4.5" class="rating-radio accent-[#127FFF]" />
+                <input
+                  type="radio"
+                  name="rating-sel"
+                  value="4.5"
+                  class="rating-radio accent-[#127FFF]"
+                />
                 <span class="flex gap-1 items-center">
                   <span class="star-rating">★★★★★</span>
                   <span class="text-xs text-[#8B96A5]">4.5 & up</span>
                 </span>
               </label>
               <label class="flex items-center gap-2.5 cursor-pointer text-sm">
-                <input type="radio" name="rating-sel" value="4" class="rating-radio accent-[#127FFF]" />
+                <input
+                  type="radio"
+                  name="rating-sel"
+                  value="4"
+                  class="rating-radio accent-[#127FFF]"
+                />
                 <span class="flex gap-1 items-center">
                   <span class="star-rating">★★★★☆</span>
                   <span class="text-xs text-[#8B96A5]">4.0 & up</span>
                 </span>
               </label>
               <label class="flex items-center gap-2.5 cursor-pointer text-sm">
-                <input type="radio" name="rating-sel" value="3" class="rating-radio accent-[#127FFF]" />
+                <input
+                  type="radio"
+                  name="rating-sel"
+                  value="3"
+                  class="rating-radio accent-[#127FFF]"
+                />
                 <span class="flex gap-1 items-center">
                   <span class="star-rating">★★★☆☆</span>
                   <span class="text-xs text-[#8B96A5]">3.0 & up</span>
@@ -660,7 +842,19 @@
             onclick="clearAllFilters()"
             class="w-full bg-[#E5F1FF] hover:bg-[#D4E8FF] text-[#127FFF] font-bold text-sm py-2.5 rounded-md transition-colors cursor-pointer flex items-center justify-center gap-2"
           >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+              ></path>
+            </svg>
             <span>Reset All Filters</span>
           </button>
         </aside>
@@ -673,14 +867,20 @@
           >
             <!-- Left Info -->
             <div class="text-sm font-semibold text-[#1C1C1C]">
-              <span id="items-found-count">0</span> items found in <span id="current-cat-display" class="capitalize">All</span>
+              <span id="items-found-count">0</span> items found in
+              <span id="current-cat-display" class="capitalize">All</span>
             </div>
 
             <!-- Right Controls -->
-            <div class="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
+            <div
+              class="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end"
+            >
               <!-- Sorting dropdown -->
               <div class="flex items-center gap-2">
-                <label class="text-xs text-[#8B96A5] font-semibold whitespace-nowrap">Sort by:</label>
+                <label
+                  class="text-xs text-[#8B96A5] font-semibold whitespace-nowrap"
+                  >Sort by:</label
+                >
                 <select
                   id="sort-select"
                   class="border border-[#E3E8EE] rounded-md px-3 py-1.5 text-sm text-[#1C1C1C] outline-none bg-white cursor-pointer"
@@ -693,7 +893,9 @@
               </div>
 
               <!-- Grid/List layout toggle -->
-              <div class="flex border border-[#E3E8EE] rounded-md overflow-hidden bg-white shrink-0">
+              <div
+                class="flex border border-[#E3E8EE] rounded-md overflow-hidden bg-white shrink-0"
+              >
                 <button
                   id="view-grid-btn"
                   class="p-2 bg-[#E5F1FF] hover:bg-[#F7FAFC] transition-colors cursor-pointer border-r border-[#E3E8EE] flex items-center justify-center"
@@ -701,8 +903,14 @@
                   title="Grid View"
                 >
                   <!-- Grid Icon SVG -->
-                  <svg class="w-5 h-5 text-[#127FFF]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M4 4h4v4H4V4zm6 0h4v4h-4V4zm6 0h4v4h-4V4zM4 10h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4zM4 16h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4z"/>
+                  <svg
+                    class="w-5 h-5 text-[#127FFF]"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M4 4h4v4H4V4zm6 0h4v4h-4V4zm6 0h4v4h-4V4zM4 10h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4zM4 16h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4z"
+                    />
                   </svg>
                 </button>
                 <button
@@ -712,8 +920,12 @@
                   title="List View"
                 >
                   <!-- List Icon SVG -->
-                  <svg class="w-5 h-5 text-[#8B96A5]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"/>
+                  <svg
+                    class="w-5 h-5 text-[#8B96A5]"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z" />
                   </svg>
                 </button>
               </div>
@@ -776,28 +988,76 @@
         <!-- Links Column 1 -->
         <div class="flex flex-col gap-3">
           <h5 class="text-[#1C1C1C] font-bold text-sm">About</h5>
-          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">About Us</a>
-          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">Find Store</a>
-          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">Categories</a>
-          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">Blogs</a>
+          <a
+            href="#"
+            class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors"
+            >About Us</a
+          >
+          <a
+            href="#"
+            class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors"
+            >Find Store</a
+          >
+          <a
+            href="#"
+            class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors"
+            >Categories</a
+          >
+          <a
+            href="#"
+            class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors"
+            >Blogs</a
+          >
         </div>
 
         <!-- Links Column 2 -->
         <div class="flex flex-col gap-3">
           <h5 class="text-[#1C1C1C] font-bold text-sm">Partnership</h5>
-          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">Supplier Registration</a>
-          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">Merchant Portal</a>
-          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">Affiliate Program</a>
-          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">Custom Sourcing</a>
+          <a
+            href="#"
+            class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors"
+            >Supplier Registration</a
+          >
+          <a
+            href="#"
+            class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors"
+            >Merchant Portal</a
+          >
+          <a
+            href="#"
+            class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors"
+            >Affiliate Program</a
+          >
+          <a
+            href="#"
+            class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors"
+            >Custom Sourcing</a
+          >
         </div>
 
         <!-- Links Column 3 -->
         <div class="flex flex-col gap-3">
           <h5 class="text-[#1C1C1C] font-bold text-sm">Information</h5>
-          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">Help Center</a>
-          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">Refund Policy</a>
-          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">Shipping Info</a>
-          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">Contact Us</a>
+          <a
+            href="#"
+            class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors"
+            >Help Center</a
+          >
+          <a
+            href="#"
+            class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors"
+            >Refund Policy</a
+          >
+          <a
+            href="#"
+            class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors"
+            >Shipping Info</a
+          >
+          <a
+            href="#"
+            class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors"
+            >Contact Us</a
+          >
         </div>
 
         <!-- App Download Column -->
@@ -830,8 +1090,16 @@
           &copy; 2026 BrandStore. All rights reserved.
         </p>
         <div class="flex items-center gap-3">
-          <a href="#" class="text-sm text-[#8B96A5] hover:text-[#127FFF] transition-colors">Privacy Policy</a>
-          <a href="#" class="text-sm text-[#8B96A5] hover:text-[#127FFF] transition-colors">Terms of Service</a>
+          <a
+            href="#"
+            class="text-sm text-[#8B96A5] hover:text-[#127FFF] transition-colors"
+            >Privacy Policy</a
+          >
+          <a
+            href="#"
+            class="text-sm text-[#8B96A5] hover:text-[#127FFF] transition-colors"
+            >Terms of Service</a
+          >
         </div>
       </div>
     </footer>
@@ -845,309 +1113,331 @@
           name: "Sony WH-1000XM4 Wireless Noise Canceling Headphones",
           category: "electronics",
           brand: "Sony",
-          price: 199.00,
+          price: 199.0,
           originalPrice: 249.99,
           rating: 4.8,
           reviewsCount: 154,
           image: "./assets/assets/Image/tech/image 23.png",
-          description: "Industry-leading noise canceling wireless over-ear headphones with high-fidelity audio, smart voice control, and up to 30 hours of battery life.",
+          description:
+            "Industry-leading noise canceling wireless over-ear headphones with high-fidelity audio, smart voice control, and up to 30 hours of battery life.",
           features: ["Plastic", "Smart"],
-          shipping: "Free Shipping"
+          shipping: "Free Shipping",
         },
         {
           id: 2,
           name: "iPhone 13 Pro Max Dual SIM - 256GB Silver",
           category: "electronics",
           brand: "Apple",
-          price: 999.00,
+          price: 999.0,
           originalPrice: null,
           rating: 4.7,
           reviewsCount: 320,
           image: "./assets/assets/Image/tech/image 29.png",
-          description: "Stunning Super Retina XDR display with ProMotion, advanced triple camera system, cinematic video mode, and industry-leading performance.",
+          description:
+            "Stunning Super Retina XDR display with ProMotion, advanced triple camera system, cinematic video mode, and industry-leading performance.",
           features: ["Metallic", "Smart"],
-          shipping: "Free Shipping"
+          shipping: "Free Shipping",
         },
         {
           id: 3,
           name: "Canon EOS R6 Mirrorless Digital Camera Body",
           category: "electronics",
           brand: "Canon",
-          price: 2499.00,
-          originalPrice: 2699.00,
+          price: 2499.0,
+          originalPrice: 2699.0,
           rating: 4.9,
           reviewsCount: 84,
           image: "./assets/assets/Image/tech/image 34.png",
-          description: "High-performance full-frame mirrorless camera offering up to 20 fps silent shooting, 4K video recording, and 5-axis image stabilization.",
+          description:
+            "High-performance full-frame mirrorless camera offering up to 20 fps silent shooting, 4K video recording, and 5-axis image stabilization.",
           features: ["Metallic", "Smart"],
-          shipping: "Free Shipping"
+          shipping: "Free Shipping",
         },
         {
           id: 4,
           name: "Xiaomi Mi Band 6 Fitness Tracker Smartwatch",
           category: "electronics",
           brand: "Xiaomi",
-          price: 19.00,
+          price: 19.0,
           originalPrice: 24.99,
           rating: 4.5,
           reviewsCount: 423,
           image: "./assets/assets/Image/tech/6.png",
-          description: "Smart fitness tracker with blood oxygen level monitoring, 30 sports workout modes, heart rate tracking, and customized 1.56 inch AMOLED display.",
+          description:
+            "Smart fitness tracker with blood oxygen level monitoring, 30 sports workout modes, heart rate tracking, and customized 1.56 inch AMOLED display.",
           features: ["Plastic", "Smart"],
-          shipping: "Shipping: $4.99"
+          shipping: "Shipping: $4.99",
         },
         {
           id: 5,
           name: "GoPro Hero 9 Black Action Camera Bundle",
           category: "electronics",
           brand: "Sony",
-          price: 299.00,
-          originalPrice: 349.00,
+          price: 299.0,
+          originalPrice: 349.0,
           rating: 4.8,
           reviewsCount: 112,
           image: "./assets/assets/Image/tech/8.png",
-          description: "Rugged waterproof action camera recording stunning 5K video, 20MP photos, touch screen interface, and HyperSmooth 3.0 stabilization.",
+          description:
+            "Rugged waterproof action camera recording stunning 5K video, 20MP photos, touch screen interface, and HyperSmooth 3.0 stabilization.",
           features: ["Plastic", "Smart"],
-          shipping: "Free Shipping"
+          shipping: "Free Shipping",
         },
         {
           id: 6,
           name: "Samsung Galaxy Fit 2 Tracker Watch",
           category: "electronics",
           brand: "Samsung",
-          price: 49.00,
+          price: 49.0,
           originalPrice: null,
           rating: 4.2,
           reviewsCount: 96,
           image: "./assets/assets/Image/tech/image 32.png",
-          description: "Lightweight, sleek fitness band tracking steps, active minutes, calories burned, and notifications for up to 15 days on a single charge.",
+          description:
+            "Lightweight, sleek fitness band tracking steps, active minutes, calories burned, and notifications for up to 15 days on a single charge.",
           features: ["Plastic", "Smart"],
-          shipping: "Shipping: $2.50"
+          shipping: "Shipping: $2.50",
         },
         {
           id: 7,
           name: "Apple MacBook Pro 14-inch M1 Pro Space Gray",
           category: "electronics",
           brand: "Apple",
-          price: 1299.00,
-          originalPrice: 1499.00,
+          price: 1299.0,
+          originalPrice: 1499.0,
           rating: 4.9,
           reviewsCount: 201,
           image: "./assets/assets/Image/tech/image 33.png",
-          description: "Professional notebook with M1 Pro chip, 16GB unified RAM, Liquid Retina XDR display, and premium speaker sound system.",
+          description:
+            "Professional notebook with M1 Pro chip, 16GB unified RAM, Liquid Retina XDR display, and premium speaker sound system.",
           features: ["Metallic", "Smart"],
-          shipping: "Free Shipping"
+          shipping: "Free Shipping",
         },
         {
           id: 8,
           name: "Anker PowerWave Pad 15W Wireless Qi Charger",
           category: "electronics",
           brand: "Xiaomi",
-          price: 15.00,
+          price: 15.0,
           originalPrice: null,
           rating: 4.4,
           reviewsCount: 1250,
           image: "./assets/assets/Image/tech/image 85.png",
-          description: "High-speed wireless charging pad compatible with iPhone, Galaxy, and all other Qi-enabled smart devices.",
+          description:
+            "High-speed wireless charging pad compatible with iPhone, Galaxy, and all other Qi-enabled smart devices.",
           features: ["Plastic"],
-          shipping: "Shipping: $1.99"
+          shipping: "Shipping: $1.99",
         },
         {
           id: 9,
           name: "Baseus 65W GaN Travel Charger Quick Charger",
           category: "electronics",
           brand: "Xiaomi",
-          price: 29.00,
-          originalPrice: 35.00,
+          price: 29.0,
+          originalPrice: 35.0,
           rating: 4.6,
           reviewsCount: 310,
           image: "./assets/assets/Layout/alibaba/Image/tech/image 85.png",
-          description: "Gallium Nitride 65W fast charger featuring 3 output ports (2x Type C and 1x USB A) to charge laptop, phone, and tablet simultaneously.",
+          description:
+            "Gallium Nitride 65W fast charger featuring 3 output ports (2x Type C and 1x USB A) to charge laptop, phone, and tablet simultaneously.",
           features: ["Plastic"],
-          shipping: "Shipping: $2.00"
+          shipping: "Shipping: $2.00",
         },
         {
           id: 10,
           name: "Nordic Lounge Soft Armchair with Wooden Legs",
           category: "interior",
           brand: "Sony", // Simulated brand for filter matching
-          price: 45.00,
-          originalPrice: 60.00,
+          price: 45.0,
+          originalPrice: 60.0,
           rating: 4.5,
           reviewsCount: 65,
           image: "./assets/assets/Image/interior/1.png",
-          description: "Modern, ergonomic Scandinavian-style soft armchair upholstered in premium breathable linen cloth with sturdy solid wood support frame.",
+          description:
+            "Modern, ergonomic Scandinavian-style soft armchair upholstered in premium breathable linen cloth with sturdy solid wood support frame.",
           features: ["Metallic", "Leather"],
-          shipping: "Shipping: $15.00"
+          shipping: "Shipping: $15.00",
         },
         {
           id: 11,
           name: "Velvet Sofa Cushions and Pillows Set of 4",
           category: "interior",
           brand: "Xiaomi",
-          price: 9.90,
-          originalPrice: 15.00,
+          price: 9.9,
+          originalPrice: 15.0,
           rating: 4.3,
           reviewsCount: 220,
           image: "./assets/assets/Image/interior/7.png",
-          description: "Luxurious velvet cushion covers available in vibrant, warm colors to decorate your living room, bedroom, or patio benches.",
+          description:
+            "Luxurious velvet cushion covers available in vibrant, warm colors to decorate your living room, bedroom, or patio benches.",
           features: ["Leather"],
-          shipping: "Shipping: $3.00"
+          shipping: "Shipping: $3.00",
         },
         {
           id: 12,
           name: "Professional Multi-Speed Kitchen Stand Mixer",
           category: "interior",
           brand: "Samsung",
-          price: 79.00,
-          originalPrice: 99.00,
+          price: 79.0,
+          originalPrice: 99.0,
           rating: 4.7,
           reviewsCount: 140,
           image: "./assets/assets/Image/interior/9.png",
-          description: "Powerful 6-speed electric kitchen mixer with a large stainless steel bowl, dough hooks, wire whisk, and flat beater attachments.",
+          description:
+            "Powerful 6-speed electric kitchen mixer with a large stainless steel bowl, dough hooks, wire whisk, and flat beater attachments.",
           features: ["Metallic"],
-          shipping: "Free Shipping"
+          shipping: "Free Shipping",
         },
         {
           id: 13,
           name: "Minimalist Modern Stool with Matte Finish",
           category: "interior",
           brand: "Sony",
-          price: 24.00,
+          price: 24.0,
           originalPrice: null,
           rating: 4.1,
           reviewsCount: 48,
           image: "./assets/assets/Image/interior/6.png",
-          description: "Clean geometric seating solution that works beautifully as a vanity stool, desk accent chair, or minimalist entryway bench.",
+          description:
+            "Clean geometric seating solution that works beautifully as a vanity stool, desk accent chair, or minimalist entryway bench.",
           features: ["Plastic"],
-          shipping: "Shipping: $5.00"
+          shipping: "Shipping: $5.00",
         },
         {
           id: 14,
           name: "Wooden Accent Storage Sideboard Cabinet",
           category: "interior",
           brand: "Apple",
-          price: 189.00,
-          originalPrice: 219.00,
+          price: 189.0,
+          originalPrice: 219.0,
           rating: 4.6,
           reviewsCount: 28,
           image: "./assets/assets/Image/interior/8.png",
-          description: "Spacious wooden organizer cabinet containing three inner drawers and adjustable shelving to display dining wares or media tech accessories.",
+          description:
+            "Spacious wooden organizer cabinet containing three inner drawers and adjustable shelving to display dining wares or media tech accessories.",
           features: ["Metallic"],
-          shipping: "Shipping: $29.99"
+          shipping: "Shipping: $29.99",
         },
         {
           id: 15,
           name: "Nordic Desk Table Reading Lamp - Adjustable Head",
           category: "interior",
           brand: "Sony",
-          price: 19.00,
-          originalPrice: 25.00,
+          price: 19.0,
+          originalPrice: 25.0,
           rating: 4.4,
           reviewsCount: 88,
           image: "./assets/assets/Image/interior/image 89.png",
-          description: "Contemporary workspace study lamp featuring a swiveling metal lampshade, protective matte black finish, and warm eye-care light output.",
+          description:
+            "Contemporary workspace study lamp featuring a swiveling metal lampshade, protective matte black finish, and warm eye-care light output.",
           features: ["Metallic"],
-          shipping: "Shipping: $3.99"
+          shipping: "Shipping: $3.99",
         },
         {
           id: 16,
           name: "Luxury Cotton Quilt Bedding Set",
           category: "interior",
           brand: "Xiaomi",
-          price: 49.00,
+          price: 49.0,
           originalPrice: null,
           rating: 4.5,
           reviewsCount: 77,
           image: "./assets/assets/Image/interior/image 93.png",
-          description: "Hypoallergenic double-brushed cotton bedding set including a queen-sized duvet cover and two standard matched pillowcases.",
+          description:
+            "Hypoallergenic double-brushed cotton bedding set including a queen-sized duvet cover and two standard matched pillowcases.",
           features: [],
-          shipping: "Free Shipping"
+          shipping: "Free Shipping",
         },
         {
           id: 17,
           name: "Classic Men's Vintage Leather Jacket",
           category: "clothing",
           brand: "Sony", // Simulated brand for matching
-          price: 89.00,
-          originalPrice: 110.00,
+          price: 89.0,
+          originalPrice: 110.0,
           rating: 4.8,
           reviewsCount: 118,
           image: "./assets/assets/Layout/alibaba/Image/cloth/2 1.png",
-          description: "Authentic heavy-duty biker leather jacket featuring distressed textures, multiple zipper pockets, and warm polyester interior linings.",
+          description:
+            "Authentic heavy-duty biker leather jacket featuring distressed textures, multiple zipper pockets, and warm polyester interior linings.",
           features: ["Leather"],
-          shipping: "Free Shipping"
+          shipping: "Free Shipping",
         },
         {
           id: 18,
           name: "Premium Cotton Casual Crewneck T-Shirt",
           category: "clothing",
           brand: "Samsung",
-          price: 12.50,
-          originalPrice: 18.00,
+          price: 12.5,
+          originalPrice: 18.0,
           rating: 4.2,
           reviewsCount: 340,
           image: "./assets/assets/Layout/alibaba/Image/cloth/Bitmap (2).png",
-          description: "Standard fit, ring-spun soft breathable cotton tee that stands up to regular machine washing without losing shapes or colors.",
+          description:
+            "Standard fit, ring-spun soft breathable cotton tee that stands up to regular machine washing without losing shapes or colors.",
           features: [],
-          shipping: "Shipping: $1.99"
+          shipping: "Shipping: $1.99",
         },
         {
           id: 19,
           name: "Elegant Women's Floral Summer Dress",
           category: "clothing",
           brand: "Apple",
-          price: 39.00,
+          price: 39.0,
           originalPrice: null,
           rating: 4.6,
           reviewsCount: 92,
           image: "./assets/assets/Layout/alibaba/Image/cloth/Bitmap.png",
-          description: "Lightweight A-line summer dress featuring a flattering waist band, side slits, and a colorful floral print pattern.",
+          description:
+            "Lightweight A-line summer dress featuring a flattering waist band, side slits, and a colorful floral print pattern.",
           features: [],
-          shipping: "Shipping: $3.00"
+          shipping: "Shipping: $3.00",
         },
         {
           id: 20,
           name: "Thick Hooded Winter Parka Coat",
           category: "clothing",
           brand: "Canon",
-          price: 120.00,
-          originalPrice: 150.00,
+          price: 120.0,
+          originalPrice: 150.0,
           rating: 4.7,
           reviewsCount: 63,
           image: "./assets/assets/Layout/alibaba/Image/cloth/image 24.png",
-          description: "Heavy insulated winter parka with adjustable hood, faux-fur trims, and water-repellent shell to protect against rain, wind, and snow.",
+          description:
+            "Heavy insulated winter parka with adjustable hood, faux-fur trims, and water-repellent shell to protect against rain, wind, and snow.",
           features: ["Metallic"],
-          shipping: "Free Shipping"
+          shipping: "Free Shipping",
         },
         {
           id: 21,
           name: "Slim Fit Classic Stretch Denim Jeans",
           category: "clothing",
           brand: "Sony",
-          price: 34.00,
-          originalPrice: 45.00,
+          price: 34.0,
+          originalPrice: 45.0,
           rating: 4.3,
           reviewsCount: 154,
           image: "./assets/assets/Layout/alibaba/Image/cloth/image 26.png",
-          description: "Fitted blue jeans crafted from high-grade cotton-spandex denim to offer excellent flexible stretches and durability for all-day comfort.",
+          description:
+            "Fitted blue jeans crafted from high-grade cotton-spandex denim to offer excellent flexible stretches and durability for all-day comfort.",
           features: [],
-          shipping: "Shipping: $4.00"
+          shipping: "Shipping: $4.00",
         },
         {
           id: 22,
           name: "Unisex Comfort Sports Activewear Set",
           category: "clothing",
           brand: "Xiaomi",
-          price: 27.00,
+          price: 27.0,
           originalPrice: null,
           rating: 4.4,
           reviewsCount: 88,
           image: "./assets/assets/Layout/alibaba/Image/cloth/image 30.png",
-          description: "Moisture-wicking athletic hoodie and sweatpants set tailored for gym workout trainings, jogging, and cozy casual lounging.",
+          description:
+            "Moisture-wicking athletic hoodie and sweatpants set tailored for gym workout trainings, jogging, and cozy casual lounging.",
           features: ["Plastic"],
-          shipping: "Shipping: $2.50"
-        }
+          shipping: "Shipping: $2.50",
+        },
       ];
 
       // STATE MANAGEMENT
@@ -1162,28 +1452,33 @@
       let viewMode = "grid"; // "grid" or "list"
       let currentPage = 1;
       const itemsPerPage = 6;
-      let favorites = JSON.parse(localStorage.getItem("brandstore_favorites")) || [];
+      let favorites =
+        JSON.parse(localStorage.getItem("brandstore_favorites")) || [];
 
       // DOM ELEMENTS
       const productsContainer = document.getElementById("products-container");
       const itemsFoundCount = document.getElementById("items-found-count");
       const currentCatDisplay = document.getElementById("current-cat-display");
       const breadcrumbCategory = document.getElementById("breadcrumb-category");
-      
+
       const sortSelect = document.getElementById("sort-select");
       const viewGridBtn = document.getElementById("view-grid-btn");
       const viewListBtn = document.getElementById("view-list-btn");
-      
+
       const priceMinInput = document.getElementById("price-min");
       const priceMaxInput = document.getElementById("price-max");
-      
+
       const activeBadgesRow = document.getElementById("active-badges-row");
-      const paginationContainer = document.getElementById("pagination-container");
+      const paginationContainer = document.getElementById(
+        "pagination-container",
+      );
       const loadMoreBtn = document.getElementById("load-more-btn");
-      
+
       const headerSearchForm = document.getElementById("header-search-form");
       const headerSearchInput = document.getElementById("header-search-input");
-      const headerCategorySelect = document.getElementById("header-category-select");
+      const headerCategorySelect = document.getElementById(
+        "header-category-select",
+      );
       const mobileSearchInput = document.getElementById("mobile-search-input");
 
       document.addEventListener("DOMContentLoaded", () => {
@@ -1213,9 +1508,11 @@
 
           trigger.addEventListener("click", (e) => {
             e.stopPropagation();
-            document.querySelectorAll(".dropdown-menu-custom").forEach((otherMenu) => {
-              if (otherMenu !== menu) otherMenu.classList.remove("show");
-            });
+            document
+              .querySelectorAll(".dropdown-menu-custom")
+              .forEach((otherMenu) => {
+                if (otherMenu !== menu) otherMenu.classList.remove("show");
+              });
             menu.classList.toggle("show");
           });
         }
@@ -1255,7 +1552,7 @@
           viewGridBtn.classList.add("bg-[#E5F1FF]");
           viewGridBtn.querySelector("svg").classList.add("text-[#127FFF]");
           viewGridBtn.querySelector("svg").classList.remove("text-[#8B96A5]");
-          
+
           viewListBtn.classList.remove("bg-[#E5F1FF]");
           viewListBtn.querySelector("svg").classList.remove("text-[#127FFF]");
           viewListBtn.querySelector("svg").classList.add("text-[#8B96A5]");
@@ -1267,7 +1564,7 @@
           viewListBtn.classList.add("bg-[#E5F1FF]");
           viewListBtn.querySelector("svg").classList.add("text-[#127FFF]");
           viewListBtn.querySelector("svg").classList.remove("text-[#8B96A5]");
-          
+
           viewGridBtn.classList.remove("bg-[#E5F1FF]");
           viewGridBtn.querySelector("svg").classList.remove("text-[#127FFF]");
           viewGridBtn.querySelector("svg").classList.add("text-[#8B96A5]");
@@ -1283,7 +1580,9 @@
         // --- 4. Brand Checkboxes ---
         document.querySelectorAll(".brand-checkbox").forEach((cb) => {
           cb.addEventListener("change", () => {
-            selectedBrands = Array.from(document.querySelectorAll(".brand-checkbox:checked")).map(el => el.value);
+            selectedBrands = Array.from(
+              document.querySelectorAll(".brand-checkbox:checked"),
+            ).map((el) => el.value);
             currentPage = 1;
             renderProducts();
           });
@@ -1292,7 +1591,9 @@
         // --- 5. Feature Checkboxes ---
         document.querySelectorAll(".feature-checkbox").forEach((cb) => {
           cb.addEventListener("change", () => {
-            selectedFeatures = Array.from(document.querySelectorAll(".feature-checkbox:checked")).map(el => el.value);
+            selectedFeatures = Array.from(
+              document.querySelectorAll(".feature-checkbox:checked"),
+            ).map((el) => el.value);
             currentPage = 1;
             renderProducts();
           });
@@ -1360,16 +1661,24 @@
       function setCategoryFilter(category) {
         currentCategory = category;
         currentPage = 1;
-        
+
         // Remove active class from categories
-        document.querySelectorAll("#category-filter button").forEach(btn => {
-          btn.classList.remove("font-semibold", "bg-[#E5F1FF]", "text-[#127FFF]");
+        document.querySelectorAll("#category-filter button").forEach((btn) => {
+          btn.classList.remove(
+            "font-semibold",
+            "bg-[#E5F1FF]",
+            "text-[#127FFF]",
+          );
         });
-        
+
         // Add active classes
         const activeBtn = document.getElementById("cat-" + category);
         if (activeBtn) {
-          activeBtn.classList.add("font-semibold", "bg-[#E5F1FF]", "text-[#127FFF]");
+          activeBtn.classList.add(
+            "font-semibold",
+            "bg-[#E5F1FF]",
+            "text-[#127FFF]",
+          );
         }
 
         // Sync header select
@@ -1377,7 +1686,8 @@
           headerCategorySelect.value = "";
         } else {
           // Capitalize first letter to match select values
-          headerCategorySelect.value = category.charAt(0).toUpperCase() + category.slice(1);
+          headerCategorySelect.value =
+            category.charAt(0).toUpperCase() + category.slice(1);
         }
 
         renderProducts();
@@ -1411,15 +1721,25 @@
         headerCategorySelect.value = "";
         sortSelect.value = "featured";
 
-        document.querySelectorAll(".brand-checkbox").forEach(cb => cb.checked = false);
-        document.querySelectorAll(".feature-checkbox").forEach(cb => cb.checked = false);
+        document
+          .querySelectorAll(".brand-checkbox")
+          .forEach((cb) => (cb.checked = false));
+        document
+          .querySelectorAll(".feature-checkbox")
+          .forEach((cb) => (cb.checked = false));
         document.querySelector(".rating-radio[value='0']").checked = true;
 
         // Reset category styles
-        document.querySelectorAll("#category-filter button").forEach(btn => {
-          btn.classList.remove("font-semibold", "bg-[#E5F1FF]", "text-[#127FFF]");
+        document.querySelectorAll("#category-filter button").forEach((btn) => {
+          btn.classList.remove(
+            "font-semibold",
+            "bg-[#E5F1FF]",
+            "text-[#127FFF]",
+          );
         });
-        document.getElementById("cat-all").classList.add("font-semibold", "bg-[#E5F1FF]", "text-[#127FFF]");
+        document
+          .getElementById("cat-all")
+          .classList.add("font-semibold", "bg-[#E5F1FF]", "text-[#127FFF]");
 
         renderProducts();
       }
@@ -1427,9 +1747,15 @@
       // CATEGORY COUNTS DISPLAY
       function updateCategoryCountBadges() {
         const countAll = productsData.length;
-        const countElec = productsData.filter(p => p.category === "electronics").length;
-        const countCloth = productsData.filter(p => p.category === "clothing").length;
-        const countInt = productsData.filter(p => p.category === "interior").length;
+        const countElec = productsData.filter(
+          (p) => p.category === "electronics",
+        ).length;
+        const countCloth = productsData.filter(
+          (p) => p.category === "clothing",
+        ).length;
+        const countInt = productsData.filter(
+          (p) => p.category === "interior",
+        ).length;
 
         document.getElementById("count-all").textContent = countAll;
         document.getElementById("count-electronics").textContent = countElec;
@@ -1443,36 +1769,44 @@
 
         // 1. Category
         if (currentCategory !== "all") {
-          list = list.filter(p => p.category === currentCategory);
+          list = list.filter((p) => p.category === currentCategory);
         }
 
         // 2. Search Keyword
         if (searchKeyword) {
           const kw = searchKeyword.toLowerCase();
-          list = list.filter(p => p.name.toLowerCase().includes(kw) || p.description.toLowerCase().includes(kw));
+          list = list.filter(
+            (p) =>
+              p.name.toLowerCase().includes(kw) ||
+              p.description.toLowerCase().includes(kw),
+          );
         }
 
         // 3. Brands
         if (selectedBrands.length > 0) {
-          list = list.filter(p => selectedBrands.includes(p.brand));
+          list = list.filter((p) => selectedBrands.includes(p.brand));
         }
 
         // 4. Features
         if (selectedFeatures.length > 0) {
-          list = list.filter(p => p.features && p.features.some(f => selectedFeatures.includes(f)));
+          list = list.filter(
+            (p) =>
+              p.features &&
+              p.features.some((f) => selectedFeatures.includes(f)),
+          );
         }
 
         // 5. Price Min/Max
         if (minPrice !== null) {
-          list = list.filter(p => p.price >= minPrice);
+          list = list.filter((p) => p.price >= minPrice);
         }
         if (maxPrice !== null) {
-          list = list.filter(p => p.price <= maxPrice);
+          list = list.filter((p) => p.price <= maxPrice);
         }
 
         // 6. Rating
         if (minRating > 0) {
-          list = list.filter(p => p.rating >= minRating);
+          list = list.filter((p) => p.rating >= minRating);
         }
 
         // 7. Sort
@@ -1490,10 +1824,11 @@
       // UPDATE ACTIVE FILTER BADGES ROW
       function renderActiveBadges() {
         activeBadgesRow.innerHTML = "";
-        
+
         const createBadge = (text, onClick) => {
           const badge = document.createElement("div");
-          badge.className = "flex items-center gap-1 bg-white border border-[#E3E8EE] px-2.5 py-1 rounded-full text-[#1C1C1C] hover:border-[#127FFF] transition-colors";
+          badge.className =
+            "flex items-center gap-1 bg-white border border-[#E3E8EE] px-2.5 py-1 rounded-full text-[#1C1C1C] hover:border-[#127FFF] transition-colors";
           badge.innerHTML = `
             <span>${text}</span>
             <button class="text-[#8B96A5] hover:text-red-500 font-bold ml-1 cursor-pointer">×</button>
@@ -1503,7 +1838,9 @@
         };
 
         if (currentCategory !== "all") {
-          createBadge(`Category: ${currentCategory}`, () => setCategoryFilter("all"));
+          createBadge(`Category: ${currentCategory}`, () =>
+            setCategoryFilter("all"),
+          );
         }
         if (searchKeyword) {
           createBadge(`Search: "${searchKeyword}"`, () => {
@@ -1513,21 +1850,26 @@
             renderProducts();
           });
         }
-        selectedBrands.forEach(b => {
+        selectedBrands.forEach((b) => {
           createBadge(`Brand: ${b}`, () => {
-            const cb = Array.from(document.querySelectorAll(".brand-checkbox")).find(c => c.value === b);
+            const cb = Array.from(
+              document.querySelectorAll(".brand-checkbox"),
+            ).find((c) => c.value === b);
             if (cb) cb.click();
           });
         });
-        selectedFeatures.forEach(f => {
+        selectedFeatures.forEach((f) => {
           createBadge(`Feature: ${f}`, () => {
-            const cb = Array.from(document.querySelectorAll(".feature-checkbox")).find(c => c.value === f);
+            const cb = Array.from(
+              document.querySelectorAll(".feature-checkbox"),
+            ).find((c) => c.value === f);
             if (cb) cb.click();
           });
         });
         if (minPrice !== null || maxPrice !== null) {
           let priceText = "";
-          if (minPrice !== null && maxPrice !== null) priceText = `$${minPrice} - $${maxPrice}`;
+          if (minPrice !== null && maxPrice !== null)
+            priceText = `$${minPrice} - $${maxPrice}`;
           else if (minPrice !== null) priceText = `> $${minPrice}`;
           else if (maxPrice !== null) priceText = `< $${maxPrice}`;
           createBadge(priceText, () => {
@@ -1548,17 +1890,23 @@
       // PRODUCT RENDERING
       function renderProducts() {
         const filteredList = getFilteredProducts();
-        
+
         // Sync Display Headers
         itemsFoundCount.textContent = filteredList.length;
-        currentCatDisplay.textContent = currentCategory === "all" ? "All Products" : currentCategory;
-        breadcrumbCategory.textContent = currentCategory === "all" ? "All Products" : currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1);
+        currentCatDisplay.textContent =
+          currentCategory === "all" ? "All Products" : currentCategory;
+        breadcrumbCategory.textContent =
+          currentCategory === "all"
+            ? "All Products"
+            : currentCategory.charAt(0).toUpperCase() +
+              currentCategory.slice(1);
 
         renderActiveBadges();
 
         // Handle empty view
         if (filteredList.length === 0) {
-          productsContainer.className = "flex flex-col items-center justify-center py-12 bg-white border border-[#E3E8EE] rounded-lg w-full";
+          productsContainer.className =
+            "flex flex-col items-center justify-center py-12 bg-white border border-[#E3E8EE] rounded-lg w-full";
           productsContainer.innerHTML = `
             <svg class="w-16 h-16 text-[#8B96A5] mb-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
             <h3 class="text-[#1C1C1C] font-bold text-lg mb-1">No products found</h3>
@@ -1573,31 +1921,38 @@
         // Apply pagination paging limit
         const totalItems = filteredList.length;
         const totalPages = Math.ceil(totalItems / itemsPerPage);
-        
+
         // Boundaries checks
         if (currentPage > totalPages) currentPage = totalPages;
         if (currentPage < 1) currentPage = 1;
 
         const startIndex = (currentPage - 1) * itemsPerPage;
-        const slicedProducts = filteredList.slice(startIndex, startIndex + itemsPerPage);
+        const slicedProducts = filteredList.slice(
+          startIndex,
+          startIndex + itemsPerPage,
+        );
 
         // Grid vs List view classes
         if (viewMode === "grid") {
-          productsContainer.className = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 w-full";
+          productsContainer.className =
+            "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 w-full";
         } else {
           productsContainer.className = "flex flex-col gap-4 w-full";
         }
 
         productsContainer.innerHTML = "";
 
-        slicedProducts.forEach(p => {
+        slicedProducts.forEach((p) => {
           const isFav = favorites.includes(p.id);
           const hasOriginalPrice = p.originalPrice !== null;
-          const starsHtml = "★".repeat(Math.round(p.rating)) + "☆".repeat(5 - Math.round(p.rating));
-          
+          const starsHtml =
+            "★".repeat(Math.round(p.rating)) +
+            "☆".repeat(5 - Math.round(p.rating));
+
           if (viewMode === "grid") {
             const gridCard = document.createElement("div");
-            gridCard.className = "bg-white border border-[#E3E8EE] rounded-lg p-4 flex flex-col justify-between hover:shadow-md transition-shadow duration-200 group relative";
+            gridCard.className =
+              "bg-white border border-[#E3E8EE] rounded-lg p-4 flex flex-col justify-between hover:shadow-md transition-shadow duration-200 group relative";
             gridCard.innerHTML = `
               <!-- Heart Wishlist icon -->
               <button 
@@ -1605,7 +1960,7 @@
                 class="absolute top-3 right-3 w-8 h-8 rounded-full border border-[#E3E8EE] flex items-center justify-center bg-white hover:bg-[#FFE3E3] transition-colors shadow-sm cursor-pointer z-10"
                 aria-label="Add to Wishlist"
               >
-                <svg class="w-[18px] h-[18px] ${isFav ? 'text-red-500 fill-current' : 'text-[#8B96A5]'}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <svg class="w-[18px] h-[18px] ${isFav ? "text-red-500 fill-current" : "text-[#8B96A5]"}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                 </svg>
               </button>
@@ -1644,7 +1999,8 @@
           } else {
             // LIST VIEW CARD
             const listCard = document.createElement("div");
-            listCard.className = "bg-white border border-[#E3E8EE] rounded-lg p-5 flex flex-col md:flex-row gap-5 hover:shadow-md transition-shadow duration-200 group relative w-full";
+            listCard.className =
+              "bg-white border border-[#E3E8EE] rounded-lg p-5 flex flex-col md:flex-row gap-5 hover:shadow-md transition-shadow duration-200 group relative w-full";
             listCard.innerHTML = `
               <!-- Left: Image Area -->
               <div class="w-full md:w-[180px] h-[150px] shrink-0 bg-white flex items-center justify-center relative rounded border border-[#F1F2F4]">
@@ -1666,7 +2022,7 @@
                   <p class="text-xs text-[#505050] leading-relaxed line-clamp-3">${p.description}</p>
                   
                   <div class="flex gap-2 mt-1">
-                    ${p.features.map(f => `<span class="bg-[#F1F2F4] text-[#505050] text-[10px] font-semibold px-2 py-0.5 rounded">${f}</span>`).join('')}
+                    ${p.features.map((f) => `<span class="bg-[#F1F2F4] text-[#505050] text-[10px] font-semibold px-2 py-0.5 rounded">${f}</span>`).join("")}
                   </div>
                 </div>
 
@@ -1689,10 +2045,10 @@
                       onclick="toggleFavorite(${p.id}, event)"
                       class="flex items-center justify-center gap-2 border border-[#E3E8EE] bg-white text-[#127FFF] hover:bg-[#FFE3E3] py-2 px-3 rounded-md text-xs font-semibold transition-colors cursor-pointer"
                     >
-                      <svg class="w-4 h-4 ${isFav ? 'text-red-500 fill-current' : 'text-[#127FFF]'}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <svg class="w-4 h-4 ${isFav ? "text-red-500 fill-current" : "text-[#127FFF]"}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                       </svg>
-                      <span>${isFav ? 'Favorited' : 'Save'}</span>
+                      <span>${isFav ? "Favorited" : "Save"}</span>
                     </button>
                   </div>
                 </div>
@@ -1718,13 +2074,13 @@
 
         // Prev button
         const prevBtn = document.createElement("button");
-        prevBtn.className = `p-2 border border-[#E3E8EE] rounded-md transition-colors flex items-center justify-center bg-white ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#F7FAFC] cursor-pointer'}`;
+        prevBtn.className = `p-2 border border-[#E3E8EE] rounded-md transition-colors flex items-center justify-center bg-white ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-[#F7FAFC] cursor-pointer"}`;
         prevBtn.innerHTML = `<svg class="w-4 h-4 text-[#1C1C1C]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>`;
         if (currentPage > 1) {
           prevBtn.addEventListener("click", () => {
             currentPage--;
             renderProducts();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: "smooth" });
           });
         }
         paginationContainer.appendChild(prevBtn);
@@ -1733,25 +2089,25 @@
         for (let i = 1; i <= totalPages; i++) {
           const pageBtn = document.createElement("button");
           const isActive = currentPage === i;
-          pageBtn.className = `w-9 h-9 border rounded-md font-semibold text-sm flex items-center justify-center transition-all cursor-pointer ${isActive ? 'bg-[#127FFF] border-[#127FFF] text-white shadow-sm' : 'bg-white border-[#E3E8EE] text-[#1C1C1C] hover:bg-[#F7FAFC]'}`;
+          pageBtn.className = `w-9 h-9 border rounded-md font-semibold text-sm flex items-center justify-center transition-all cursor-pointer ${isActive ? "bg-[#127FFF] border-[#127FFF] text-white shadow-sm" : "bg-white border-[#E3E8EE] text-[#1C1C1C] hover:bg-[#F7FAFC]"}`;
           pageBtn.textContent = i;
           pageBtn.addEventListener("click", () => {
             currentPage = i;
             renderProducts();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: "smooth" });
           });
           paginationContainer.appendChild(pageBtn);
         }
 
         // Next button
         const nextBtn = document.createElement("button");
-        nextBtn.className = `p-2 border border-[#E3E8EE] rounded-md transition-colors flex items-center justify-center bg-white ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#F7FAFC] cursor-pointer'}`;
+        nextBtn.className = `p-2 border border-[#E3E8EE] rounded-md transition-colors flex items-center justify-center bg-white ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "hover:bg-[#F7FAFC] cursor-pointer"}`;
         nextBtn.innerHTML = `<svg class="w-4 h-4 text-[#1C1C1C]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>`;
         if (currentPage < totalPages) {
           nextBtn.addEventListener("click", () => {
             currentPage++;
             renderProducts();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: "smooth" });
           });
         }
         paginationContainer.appendChild(nextBtn);
@@ -1765,26 +2121,32 @@
 
         if (currentPage < totalPages) {
           currentPage++;
-          
+
           // Instead of wiping view, we append elements in load more style
           const startIndex = (currentPage - 1) * itemsPerPage;
-          const slicedProducts = filteredList.slice(startIndex, startIndex + itemsPerPage);
+          const slicedProducts = filteredList.slice(
+            startIndex,
+            startIndex + itemsPerPage,
+          );
 
-          slicedProducts.forEach(p => {
+          slicedProducts.forEach((p) => {
             const isFav = favorites.includes(p.id);
             const hasOriginalPrice = p.originalPrice !== null;
-            const starsHtml = "★".repeat(Math.round(p.rating)) + "☆".repeat(5 - Math.round(p.rating));
-            
+            const starsHtml =
+              "★".repeat(Math.round(p.rating)) +
+              "☆".repeat(5 - Math.round(p.rating));
+
             if (viewMode === "grid") {
               const gridCard = document.createElement("div");
-              gridCard.className = "bg-white border border-[#E3E8EE] rounded-lg p-4 flex flex-col justify-between hover:shadow-md transition-shadow duration-200 group relative";
+              gridCard.className =
+                "bg-white border border-[#E3E8EE] rounded-lg p-4 flex flex-col justify-between hover:shadow-md transition-shadow duration-200 group relative";
               gridCard.innerHTML = `
                 <button 
                   onclick="toggleFavorite(${p.id}, event)" 
                   class="absolute top-3 right-3 w-8 h-8 rounded-full border border-[#E3E8EE] flex items-center justify-center bg-white hover:bg-[#FFE3E3] transition-colors shadow-sm cursor-pointer z-10"
                   aria-label="Add to Wishlist"
                 >
-                  <svg class="w-[18px] h-[18px] ${isFav ? 'text-red-500 fill-current' : 'text-[#8B96A5]'}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <svg class="w-[18px] h-[18px] ${isFav ? "text-red-500 fill-current" : "text-[#8B96A5]"}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                   </svg>
                 </button>
@@ -1820,7 +2182,8 @@
               productsContainer.appendChild(gridCard);
             } else {
               const listCard = document.createElement("div");
-              listCard.className = "bg-white border border-[#E3E8EE] rounded-lg p-5 flex flex-col md:flex-row gap-5 hover:shadow-md transition-shadow duration-200 group relative w-full";
+              listCard.className =
+                "bg-white border border-[#E3E8EE] rounded-lg p-5 flex flex-col md:flex-row gap-5 hover:shadow-md transition-shadow duration-200 group relative w-full";
               listCard.innerHTML = `
                 <div class="w-full md:w-[180px] h-[150px] shrink-0 bg-white flex items-center justify-center relative rounded border border-[#F1F2F4]">
                   <img src="${p.image}" alt="${p.name}" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-200" />
@@ -1839,7 +2202,7 @@
                     <p class="text-xs text-[#505050] leading-relaxed line-clamp-3">${p.description}</p>
                     
                     <div class="flex gap-2 mt-1">
-                      ${p.features.map(f => `<span class="bg-[#F1F2F4] text-[#505050] text-[10px] font-semibold px-2 py-0.5 rounded">${f}</span>`).join('')}
+                      ${p.features.map((f) => `<span class="bg-[#F1F2F4] text-[#505050] text-[10px] font-semibold px-2 py-0.5 rounded">${f}</span>`).join("")}
                     </div>
                   </div>
 
@@ -1861,10 +2224,10 @@
                         onclick="toggleFavorite(${p.id}, event)"
                         class="flex items-center justify-center gap-2 border border-[#E3E8EE] bg-white text-[#127FFF] hover:bg-[#FFE3E3] py-2 px-3 rounded-md text-xs font-semibold transition-colors cursor-pointer"
                       >
-                        <svg class="w-4 h-4 ${isFav ? 'text-red-500 fill-current' : 'text-[#127FFF]'}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 ${isFav ? "text-red-500 fill-current" : "text-[#127FFF]"}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                         </svg>
-                        <span>${isFav ? 'Favorited' : 'Save'}</span>
+                        <span>${isFav ? "Favorited" : "Save"}</span>
                       </button>
                     </div>
                   </div>
@@ -1897,13 +2260,13 @@
       // CART MANAGEMENT / BUY NOW ACTION
       let cartCount = 0;
       function buyNowProduct(id) {
-        const prod = productsData.find(p => p.id === id);
+        const prod = productsData.find((p) => p.id === id);
         if (prod) {
           cartCount++;
           const badge = document.getElementById("cart-count-badge");
           badge.textContent = cartCount;
           badge.classList.remove("hidden");
-          
+
           // Toast notifications
           showNotification(`Added "${prod.name}" to cart!`);
         }
@@ -1912,13 +2275,14 @@
       // NOTIFICATION TOAST POPUP
       function showNotification(message) {
         const container = document.createElement("div");
-        container.className = "fixed bottom-5 right-5 bg-[#1C1C1C] text-white px-4 py-3 rounded-lg shadow-xl z-50 text-sm font-semibold flex items-center gap-3 transform translate-y-10 opacity-0 transition-all duration-300";
+        container.className =
+          "fixed bottom-5 right-5 bg-[#1C1C1C] text-white px-4 py-3 rounded-lg shadow-xl z-50 text-sm font-semibold flex items-center gap-3 transform translate-y-10 opacity-0 transition-all duration-300";
         container.innerHTML = `
           <svg class="w-5 h-5 text-[#55BD90]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           <span>${message}</span>
         `;
         document.body.appendChild(container);
-        
+
         // Trigger animations
         setTimeout(() => {
           container.classList.remove("translate-y-10", "opacity-0");
