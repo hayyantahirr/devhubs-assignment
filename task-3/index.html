@@ -42,6 +42,7 @@
 
           <!-- Center: Search Bar -->
           <form
+            id="header-search-form"
             action="products.html"
             method="GET"
             class="hidden md:flex flex-grow max-w-[640px] border-2 border-[#127FFF] rounded-lg overflow-hidden h-[46px] bg-white items-center shadow-sm"
@@ -49,8 +50,10 @@
             <input
               type="text"
               name="q"
+              id="header-search-input"
               placeholder="Search"
               class="flex-grow px-4 h-full outline-none text-sm md:text-base text-[#1C1C1C] placeholder-[#8B96A5]"
+              autocomplete="off"
             />
 
             <!-- Categories Select Dropdown -->
@@ -59,6 +62,7 @@
             >
               <select
                 name="categories"
+                id="header-category-select"
                 class="search-select h-full bg-white text-sm md:text-base text-[#1C1C1C] outline-none cursor-pointer font-medium"
               >
                 <option value="" selected>All category</option>
@@ -389,8 +393,10 @@
           <input
             type="text"
             name="q"
+            id="mobile-search-input"
             placeholder="Search"
             class="flex-grow px-4 h-full outline-none text-sm text-[#1C1C1C] placeholder-[#8B96A5]"
+            autocomplete="off"
           />
           <button
             type="submit"
@@ -788,7 +794,7 @@
         >
           <!-- Item 1 -->
           <a
-            href="#"
+            href="product-detail.html?id=5"
             class="p-5 flex flex-col items-center justify-center text-center gap-3 hover:shadow-md transition-shadow bg-white shrink-0 w-[140px] md:w-auto"
           >
             <img
@@ -808,7 +814,7 @@
           </a>
           <!-- Item 2 -->
           <a
-            href="#"
+            href="product-detail.html?id=3"
             class="p-5 flex flex-col items-center justify-center text-center gap-3 hover:shadow-md transition-shadow bg-white shrink-0 w-[140px] md:w-auto"
           >
             <img
@@ -826,7 +832,7 @@
           </a>
           <!-- Item 3 -->
           <a
-            href="#"
+            href="product-detail.html?id=4"
             class="p-5 flex flex-col items-center justify-center text-center gap-3 hover:shadow-md transition-shadow bg-white shrink-0 w-[140px] md:w-auto"
           >
             <img
@@ -846,7 +852,7 @@
           </a>
           <!-- Item 4 -->
           <a
-            href="#"
+            href="product-detail.html?id=2"
             class="p-5 flex flex-col items-center justify-center text-center gap-3 hover:shadow-md transition-shadow bg-white shrink-0 w-[140px] md:w-auto"
           >
             <img
@@ -864,7 +870,7 @@
           </a>
           <!-- Item 5 -->
           <a
-            href="#"
+            href="product-detail.html?id=1"
             class="p-5 flex flex-col items-center justify-center text-center gap-3 hover:shadow-md transition-shadow bg-white shrink-0 w-[140px] md:w-auto"
           >
             <img
@@ -919,7 +925,7 @@
         >
           <!-- Item 1 -->
           <a
-            href="#"
+            href="product-detail.html?id=10"
             class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
@@ -936,7 +942,7 @@
           </a>
           <!-- Item 2 -->
           <a
-            href="#"
+            href="product-detail.html?id=11"
             class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
@@ -953,7 +959,7 @@
           </a>
           <!-- Item 3 -->
           <a
-            href="#"
+            href="product-detail.html?id=12"
             class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
@@ -970,7 +976,7 @@
           </a>
           <!-- Item 4 -->
           <a
-            href="#"
+            href="product-detail.html?id=13"
             class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
@@ -987,7 +993,7 @@
           </a>
           <!-- Item 5 -->
           <a
-            href="#"
+            href="product-detail.html?id=14"
             class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
@@ -1004,7 +1010,7 @@
           </a>
           <!-- Item 6 -->
           <a
-            href="#"
+            href="product-detail.html?id=10"
             class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
@@ -1021,7 +1027,7 @@
           </a>
           <!-- Item 7 -->
           <a
-            href="#"
+            href="product-detail.html?id=15"
             class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
@@ -1038,7 +1044,7 @@
           </a>
           <!-- Item 8 -->
           <a
-            href="#"
+            href="product-detail.html?id=16"
             class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
@@ -1090,7 +1096,7 @@
         >
           <!-- Item 1 -->
           <a
-            href="#"
+            href="product-detail.html?id=4"
             class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
@@ -1107,7 +1113,7 @@
           </a>
           <!-- Item 2 -->
           <a
-            href="#"
+            href="product-detail.html?id=5"
             class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
@@ -1124,7 +1130,7 @@
           </a>
           <!-- Item 3 -->
           <a
-            href="#"
+            href="product-detail.html?id=1"
             class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
@@ -1139,7 +1145,7 @@
           </a>
           <!-- Item 4 -->
           <a
-            href="#"
+            href="product-detail.html?id=2"
             class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
@@ -1156,7 +1162,7 @@
           </a>
           <!-- Item 5 -->
           <a
-            href="#"
+            href="product-detail.html?id=6"
             class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
@@ -1173,7 +1179,7 @@
           </a>
           <!-- Item 6 -->
           <a
-            href="#"
+            href="product-detail.html?id=7"
             class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
@@ -1188,7 +1194,7 @@
           </a>
           <!-- Item 7 -->
           <a
-            href="#"
+            href="product-detail.html?id=3"
             class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
@@ -1205,7 +1211,7 @@
           </a>
           <!-- Item 8 -->
           <a
-            href="#"
+            href="product-detail.html?id=8"
             class="p-4 flex flex-col justify-between hover:shadow-md transition-shadow relative bg-white"
           >
             <div class="flex flex-col gap-0.5">
@@ -1713,107 +1719,6 @@
     </footer>
 
     <!-- INTERACTIVE JAVASCRIPT -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // Mobile Navigation Drawer Toggle controls
-        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-        const drawerCloseBtn = document.getElementById("drawer-close-btn");
-        const drawerOverlay = document.getElementById("drawer-overlay");
-
-        mobileMenuBtn.addEventListener("click", () => {
-          drawerOverlay.classList.add("open");
-        });
-
-        drawerCloseBtn.addEventListener("click", () => {
-          drawerOverlay.classList.remove("open");
-        });
-
-        // Close drawer clicking on background overlay
-        drawerOverlay.addEventListener("click", (e) => {
-          if (e.target === drawerOverlay) {
-            drawerOverlay.classList.remove("open");
-          }
-        });
-
-        // Dropdown toggle management helper
-        function setupDropdown(triggerId, menuId) {
-          const trigger = document.getElementById(triggerId);
-          const menu = document.getElementById(menuId);
-
-          if (!trigger || !menu) return;
-
-          trigger.addEventListener("click", (e) => {
-            e.stopPropagation();
-            // Close all other dropdown menus
-            document
-              .querySelectorAll(".dropdown-menu-custom")
-              .forEach((otherMenu) => {
-                if (otherMenu !== menu) {
-                  otherMenu.classList.remove("show");
-                }
-              });
-            menu.classList.toggle("show");
-          });
-        }
-
-        // Initialize Row 2 Dropdowns
-        setupDropdown("help-dropdown", "help-menu");
-        setupDropdown("language-dropdown", "language-menu");
-        setupDropdown("ship-dropdown", "ship-menu");
-
-        // Close all dropdowns when clicking anywhere outside
-        document.addEventListener("click", () => {
-          document.querySelectorAll(".dropdown-menu-custom").forEach((menu) => {
-            menu.classList.remove("show");
-          });
-        });
-
-        // Header Language Change Selector
-        const languageMenu = document.getElementById("language-menu");
-        const selectedLang = document.getElementById("selected-lang");
-        const drawerLangSelect = document.getElementById("drawer-lang-select");
-
-        languageMenu.addEventListener("click", (e) => {
-          const btn = e.target.closest("button");
-          if (btn) {
-            const langValue = btn.getAttribute("data-lang");
-            selectedLang.textContent = langValue;
-            drawerLangSelect.value = langValue;
-          }
-        });
-
-        // Sync Mobile Drawer Language Select back to Header
-        drawerLangSelect.addEventListener("change", (e) => {
-          selectedLang.textContent = e.target.value;
-        });
-
-        // Header Shipping Destination / Country Selector
-        const shipMenu = document.getElementById("ship-menu");
-        const currentFlag = document.getElementById("current-flag");
-        const drawerShipSelect = document.getElementById("drawer-ship-select");
-
-        function updateShippingFlag(flagFileName, countryName) {
-          currentFlag.src = `./assets/assets/Layout1/Image/flags/${flagFileName}`;
-          currentFlag.alt = countryName;
-        }
-
-        shipMenu.addEventListener("click", (e) => {
-          const btn = e.target.closest("button");
-          if (btn) {
-            const flag = btn.getAttribute("data-flag");
-            const country = btn.getAttribute("data-country");
-            updateShippingFlag(flag, country);
-            drawerShipSelect.value = flag;
-          }
-        });
-
-        // Sync Mobile Drawer Ship Select back to Header
-        drawerShipSelect.addEventListener("change", (e) => {
-          const flag = e.target.value;
-          const countryName = e.target.options[e.target.selectedIndex].text;
-          updateShippingFlag(flag, countryName);
-        });
-      });
-    </script>
+    <script src="app.js"></script>
   </body>
 </html>
