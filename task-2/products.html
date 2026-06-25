@@ -1,0 +1,1937 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BrandStore - Product Listing</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      /* Additional styles for layout flexibility */
+      .filter-badge {
+        transition: all 0.15s ease-in-out;
+      }
+      .filter-badge:hover {
+        background-color: #E5F1FF;
+        color: #127FFF;
+      }
+      .star-rating {
+        color: #FFB200;
+      }
+    </style>
+  </head>
+  <body class="bg-[#F7FAFC]">
+    <!-- HEADER -->
+    <header class="w-full bg-white">
+      <!-- Row 1: Main Header -->
+      <div class="border-b border-[#E3E8EE]">
+        <div
+          class="container-custom h-[76px] flex items-center justify-between gap-4"
+        >
+          <!-- Left: Hamburger & Logo -->
+          <div class="flex items-center gap-3">
+            <!-- Hamburger Icon (Mobile drawer toggle) -->
+            <button
+              id="mobile-menu-btn"
+              class="lg:hidden p-2 hover:bg-[#F7FAFC] rounded-lg transition-colors cursor-pointer"
+              aria-label="Toggle Menu"
+            >
+              <img
+                src="./assets/assets/navbar-icons/hamburger.svg"
+                alt="Menu"
+                class="w-7 h-7"
+              />
+            </button>
+
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center">
+              <img
+                src="./assets/assets/Layout/Brand/logo-colored.png"
+                alt="Brand Logo"
+                class="h-[40px] md:h-[44px] object-contain"
+              />
+            </a>
+          </div>
+
+          <!-- Center: Search Bar -->
+          <form
+            id="header-search-form"
+            action="products.html"
+            method="GET"
+            class="hidden md:flex flex-grow max-w-[640px] border-2 border-[#127FFF] rounded-lg overflow-hidden h-[46px] bg-white items-center shadow-sm"
+          >
+            <input
+              type="text"
+              name="q"
+              id="header-search-input"
+              placeholder="Search"
+              class="flex-grow px-4 h-full outline-none text-sm md:text-base text-[#1C1C1C] placeholder-[#8B96A5]"
+            />
+
+            <!-- Categories Select Dropdown -->
+            <div
+              class="h-full flex items-center bg-white border-l border-[#E3E8EE]"
+            >
+              <select
+                name="categories"
+                id="header-category-select"
+                class="search-select h-full bg-white text-sm md:text-base text-[#1C1C1C] outline-none cursor-pointer font-medium"
+              >
+                <option value="" selected>All category</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Interior">Interior</option>
+              </select>
+            </div>
+
+            <!-- Search Button -->
+            <button
+              type="submit"
+              class="bg-[#127FFF] text-white px-4 md:px-8 h-full text-base font-bold hover:bg-[#0067FF] transition-colors cursor-pointer border-l border-[#127FFF]"
+            >
+              Search
+            </button>
+          </form>
+
+          <!-- Right: User Action Items -->
+          <div class="flex items-center gap-5 md:gap-7">
+            <a
+              href="#"
+              class="flex flex-col items-center gap-1.5 text-[#8B96A5] hover:text-[#127FFF] transition-all duration-150 group"
+            >
+              <img
+                src="./assets/assets/navbar-icons/profile.svg"
+                alt="Profile"
+                class="w-[24px] h-[24px] opacity-80 group-hover:opacity-100"
+              />
+              <span class="text-[13px] font-semibold hidden lg:inline"
+                >Profile</span
+              >
+            </a>
+            <a
+              href="#"
+              class="hidden sm:flex flex-col items-center gap-1.5 text-[#8B96A5] hover:text-[#127FFF] transition-all duration-150 group"
+            >
+              <img
+                src="./assets/assets/navbar-icons/message.svg"
+                alt="Message"
+                class="w-[24px] h-[24px] opacity-80 group-hover:opacity-100"
+              />
+              <span class="text-[13px] font-semibold hidden lg:inline"
+                >Message</span
+              >
+            </a>
+            <a
+              href="#"
+              class="hidden sm:flex flex-col items-center gap-1.5 text-[#8B96A5] hover:text-[#127FFF] transition-all duration-150 group"
+            >
+              <img
+                src="./assets/assets/navbar-icons/heart(orders).svg"
+                alt="Orders"
+                class="w-[24px] h-[24px] opacity-80 group-hover:opacity-100"
+              />
+              <span class="text-[13px] font-semibold hidden lg:inline"
+                >Orders</span
+              >
+            </a>
+            <a
+              href="#"
+              class="flex flex-col items-center gap-1.5 text-[#8B96A5] hover:text-[#127FFF] transition-all duration-150 group relative"
+            >
+              <div class="relative">
+                <img
+                  src="./assets/assets/navbar-icons/cart.svg"
+                  alt="My cart"
+                  class="w-[24px] h-[24px] opacity-80 group-hover:opacity-100"
+                />
+                <span
+                  id="cart-count-badge"
+                  class="absolute -top-1.5 -right-1.5 bg-[#127FFF] text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center hidden"
+                  >0</span
+                >
+              </div>
+              <span class="text-[13px] font-semibold hidden lg:inline"
+                >My cart</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2: Sub-navigation (Desktop only) -->
+      <div class="border-b border-[#E3E8EE] hidden lg:block">
+        <div
+          class="container-custom h-[56px] flex items-center justify-between"
+        >
+          <!-- Left Navigation Links -->
+          <div class="flex items-center gap-6">
+            <a
+              href="products.html?category=all"
+              class="flex items-center gap-2 text-[#1C1C1C] font-semibold text-sm hover:text-[#127FFF] transition-colors"
+            >
+              <img
+                src="./assets/assets/navbar-icons/hamburger.svg"
+                alt="Menu"
+                class="w-[18px] h-[18px]"
+              />
+              <span>All category</span>
+            </a>
+            <a
+              href="products.html"
+              class="text-[#1C1C1C] font-medium text-sm hover:text-[#127FFF] transition-colors"
+              >Hot offers</a
+            >
+            <a
+              href="products.html"
+              class="text-[#1C1C1C] font-medium text-sm hover:text-[#127FFF] transition-colors"
+              >Gift boxes</a
+            >
+            <a
+              href="products.html"
+              class="text-[#1C1C1C] font-medium text-sm hover:text-[#127FFF] transition-colors"
+              >Projects</a
+            >
+            <a
+              href="products.html"
+              class="text-[#1C1C1C] font-medium text-sm hover:text-[#127FFF] transition-colors"
+              >Menu items</a
+            >
+
+            <!-- Help Dropdown -->
+            <div class="relative dropdown-container" id="help-dropdown">
+              <button
+                class="flex items-center gap-1 text-[#1C1C1C] font-medium text-sm hover:text-[#127FFF] transition-colors cursor-pointer border-none bg-transparent"
+              >
+                <span>Help</span>
+                <svg
+                  class="w-3 h-3 text-[#8B96A5] mt-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div class="dropdown-menu-custom" id="help-menu">
+                <a href="#" class="dropdown-item-custom">Support Center</a>
+                <a href="#" class="dropdown-item-custom">FAQs</a>
+                <a
+                  href="#"
+                  class="dropdown-item-custom border-t border-[#F1F2F4]"
+                  >Contact Us</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Navigation (Language & Ship To Dropdowns) -->
+          <div class="flex items-center gap-6">
+            <!-- Language Dropdown -->
+            <div class="relative dropdown-container" id="language-dropdown">
+              <button
+                class="flex items-center gap-1.5 text-[#1C1C1C] font-medium text-sm hover:text-[#127FFF] transition-colors cursor-pointer border-none bg-transparent"
+              >
+                <span id="selected-lang">English, USD</span>
+                <svg
+                  class="w-3 h-3 text-[#8B96A5] mt-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div class="dropdown-menu-custom" id="language-menu">
+                <button class="dropdown-item-custom" data-lang="English, USD">
+                  English, USD
+                </button>
+                <button class="dropdown-item-custom" data-lang="Deutsch, EUR">
+                  Deutsch, EUR
+                </button>
+                <button class="dropdown-item-custom" data-lang="Español, EUR">
+                  Español, EUR
+                </button>
+                <button class="dropdown-item-custom" data-lang="Русский, RUB">
+                  Русский, RUB
+                </button>
+                <button class="dropdown-item-custom" data-lang="中文, CNY">
+                  中文, CNY
+                </button>
+              </div>
+            </div>
+
+            <!-- Ship To / Flag Dropdown -->
+            <div class="relative dropdown-container" id="ship-dropdown">
+              <button
+                class="flex items-center gap-1.5 text-[#1C1C1C] font-medium text-sm hover:text-[#127FFF] transition-colors cursor-pointer border-none bg-transparent"
+              >
+                <span>Ship to</span>
+                <img
+                  id="current-flag"
+                  src="./assets/assets/Layout1/Image/flags/DE@2x.png"
+                  alt="Germany"
+                  class="w-5 h-[15px] object-cover rounded-sm border border-[#E3E8EE]"
+                />
+                <svg
+                  class="w-3 h-3 text-[#8B96A5] mt-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div class="dropdown-menu-custom" id="ship-menu">
+                <button
+                  class="dropdown-item-custom"
+                  data-country="Germany"
+                  data-flag="DE@2x.png"
+                >
+                  <img
+                    src="./assets/assets/Layout1/Image/flags/DE@2x.png"
+                    alt="Germany"
+                  />
+                  <span>Germany</span>
+                </button>
+                <button
+                  class="dropdown-item-custom"
+                  data-country="United States"
+                  data-flag="US@2x.png"
+                >
+                  <img
+                    src="./assets/assets/Layout1/Image/flags/US@2x.png"
+                    alt="United States"
+                  />
+                  <span>United States</span>
+                </button>
+                <button
+                  class="dropdown-item-custom"
+                  data-country="United Kingdom"
+                  data-flag="GB@2x.png"
+                >
+                  <img
+                    src="./assets/assets/Layout1/Image/flags/GB@2x.png"
+                    alt="United Kingdom"
+                  />
+                  <span>United Kingdom</span>
+                </button>
+                <button
+                  class="dropdown-item-custom"
+                  data-country="France"
+                  data-flag="FR@2x.png"
+                >
+                  <img
+                    src="./assets/assets/Layout1/Image/flags/FR@2x.png"
+                    alt="France"
+                  />
+                  <span>France</span>
+                </button>
+                <button
+                  class="dropdown-item-custom"
+                  data-country="Italy"
+                  data-flag="IT@2x.png"
+                >
+                  <img
+                    src="./assets/assets/Layout1/Image/flags/IT@2x.png"
+                    alt="Italy"
+                  />
+                  <span>Italy</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Search Row (Mobile only) -->
+      <div class="md:hidden bg-white px-4 pb-4 border-b border-[#E3E8EE]">
+        <form
+          action="products.html"
+          method="GET"
+          class="flex border-2 border-[#127FFF] rounded-lg overflow-hidden h-[40px] bg-white items-center"
+        >
+          <input
+            type="text"
+            name="q"
+            id="mobile-search-input"
+            placeholder="Search"
+            class="flex-grow px-4 h-full outline-none text-sm text-[#1C1C1C] placeholder-[#8B96A5]"
+          />
+          <button
+            type="submit"
+            class="bg-[#127FFF] text-white px-5 h-full text-sm font-semibold hover:bg-[#0067FF] transition-colors cursor-pointer"
+          >
+            Search
+          </button>
+        </form>
+      </div>
+    </header>
+
+    <!-- MOBILE NAVIGATION DRAWER -->
+    <div id="drawer-overlay" class="mobile-drawer-overlay">
+      <div class="mobile-drawer" id="mobile-drawer">
+        <div class="mobile-drawer-header">
+          <img
+            src="./assets/assets/Layout/Brand/logo-colored.png"
+            alt="Brand Logo"
+            class="h-8 object-contain"
+          />
+          <button
+            id="drawer-close-btn"
+            class="p-2 hover:bg-[#F7FAFC] rounded-lg transition-colors cursor-pointer"
+            aria-label="Close Menu"
+          >
+            <svg
+              class="w-6 h-6 text-[#8B96A5]"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div class="mobile-drawer-content flex flex-col gap-6">
+          <div
+            class="flex items-center gap-3 p-3 bg-[#F7FAFC] rounded-lg border border-[#E3E8EE]"
+          >
+            <div
+              class="w-10 h-10 p-2 bg-white rounded-full border border-[#E3E8EE] flex items-center justify-center"
+            >
+              <img
+                src="./assets/assets/navbar-icons/profile.svg"
+                alt="Profile"
+                class="w-6 h-6"
+              />
+            </div>
+            <div>
+              <p class="text-sm font-bold text-[#1C1C1C]">Hello, Guest</p>
+              <a href="#" class="text-xs text-[#127FFF] font-semibold"
+                >Sign in | Register</a
+              >
+            </div>
+          </div>
+
+          <!-- Main Drawer Links -->
+          <nav class="flex flex-col gap-1">
+            <a
+              href="products.html?category=all"
+              class="flex items-center gap-3 text-[#1C1C1C] font-semibold text-sm py-2.5 px-3 rounded-lg hover:bg-[#F7FAFC] hover:text-[#127FFF] transition-all"
+            >
+              <img
+                src="./assets/assets/navbar-icons/hamburger.svg"
+                alt="All Category"
+                class="w-5 h-5"
+              />
+              <span>All categories</span>
+            </a>
+            <a
+              href="products.html"
+              class="text-[#1C1C1C] font-medium text-sm py-2.5 px-3 rounded-lg hover:bg-[#F7FAFC] hover:text-[#127FFF] transition-all"
+              >Hot offers</a
+            >
+            <a
+              href="products.html"
+              class="text-[#1C1C1C] font-medium text-sm py-2.5 px-3 rounded-lg hover:bg-[#F7FAFC] hover:text-[#127FFF] transition-all"
+              >Gift boxes</a
+            >
+            <a
+              href="products.html"
+              class="text-[#1C1C1C] font-medium text-sm py-2.5 px-3 rounded-lg hover:bg-[#F7FAFC] hover:text-[#127FFF] transition-all"
+              >Projects</a
+            >
+            <a
+              href="products.html"
+              class="text-[#1C1C1C] font-medium text-sm py-2.5 px-3 rounded-lg hover:bg-[#F7FAFC] hover:text-[#127FFF] transition-all"
+              >Menu items</a
+            >
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN BODY CONTENT -->
+    <main class="container-custom py-6 flex flex-col gap-5">
+      <!-- BREADCRUMBS -->
+      <nav class="text-sm text-[#8B96A5] flex gap-2 items-center">
+        <a href="index.html" class="hover:text-[#127FFF] transition-colors">Home</a>
+        <span>&gt;</span>
+        <span class="hover:text-[#127FFF] transition-colors cursor-pointer">All Products</span>
+        <span>&gt;</span>
+        <span id="breadcrumb-category" class="text-[#1C1C1C] font-medium">Electronics</span>
+      </nav>
+
+      <!-- TWO-COLUMN WORKSPACE -->
+      <div class="flex flex-col lg:flex-row gap-6 items-start">
+        
+        <!-- SIDEBAR FILTERS (Left column) -->
+        <aside class="w-full lg:w-[240px] bg-transparent flex flex-col gap-4 shrink-0">
+          
+          <!-- Category Filter Accordion -->
+          <div class="bg-white border border-[#E3E8EE] rounded-lg overflow-hidden">
+            <button
+              class="w-full px-4 py-3 flex justify-between items-center border-b border-[#E3E8EE] font-bold text-sm text-[#1C1C1C] bg-white cursor-pointer hover:bg-[#F7FAFC] transition-colors"
+              onclick="toggleAccordion('category-filter')"
+            >
+              <span>Category</span>
+              <svg class="w-4 h-4 transform transition-transform" id="category-filter-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path></svg>
+            </button>
+            <div class="p-4 flex flex-col gap-2.5 text-sm" id="category-filter">
+              <button onclick="setCategoryFilter('all')" class="text-left font-medium hover:text-[#127FFF] filter-badge px-2 py-1.5 rounded-md flex justify-between items-center w-full" id="cat-all">
+                <span>All Categories</span>
+                <span class="text-xs text-[#8B96A5]" id="count-all">22</span>
+              </button>
+              <button onclick="setCategoryFilter('electronics')" class="text-left hover:text-[#127FFF] filter-badge px-2 py-1.5 rounded-md flex justify-between items-center w-full" id="cat-electronics">
+                <span>Electronics</span>
+                <span class="text-xs text-[#8B96A5]" id="count-electronics">9</span>
+              </button>
+              <button onclick="setCategoryFilter('clothing')" class="text-left hover:text-[#127FFF] filter-badge px-2 py-1.5 rounded-md flex justify-between items-center w-full" id="cat-clothing">
+                <span>Clothing</span>
+                <span class="text-xs text-[#8B96A5]" id="count-clothing">6</span>
+              </button>
+              <button onclick="setCategoryFilter('interior')" class="text-left hover:text-[#127FFF] filter-badge px-2 py-1.5 rounded-md flex justify-between items-center w-full" id="cat-interior">
+                <span>Interior Design</span>
+                <span class="text-xs text-[#8B96A5]" id="count-interior">7</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Brands Filter Checkboxes -->
+          <div class="bg-white border border-[#E3E8EE] rounded-lg overflow-hidden">
+            <button
+              class="w-full px-4 py-3 flex justify-between items-center border-b border-[#E3E8EE] font-bold text-sm text-[#1C1C1C] bg-white cursor-pointer hover:bg-[#F7FAFC] transition-colors"
+              onclick="toggleAccordion('brand-filter')"
+            >
+              <span>Brands</span>
+              <svg class="w-4 h-4 transform transition-transform" id="brand-filter-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path></svg>
+            </button>
+            <div class="p-4 flex flex-col gap-3 text-sm" id="brand-filter">
+              <label class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]">
+                <input type="checkbox" value="Sony" class="brand-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]" />
+                <span>Sony</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]">
+                <input type="checkbox" value="Apple" class="brand-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]" />
+                <span>Apple</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]">
+                <input type="checkbox" value="Samsung" class="brand-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]" />
+                <span>Samsung</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]">
+                <input type="checkbox" value="Canon" class="brand-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]" />
+                <span>Canon</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]">
+                <input type="checkbox" value="Xiaomi" class="brand-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]" />
+                <span>Xiaomi</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Features Filter Checkboxes -->
+          <div class="bg-white border border-[#E3E8EE] rounded-lg overflow-hidden">
+            <button
+              class="w-full px-4 py-3 flex justify-between items-center border-b border-[#E3E8EE] font-bold text-sm text-[#1C1C1C] bg-white cursor-pointer hover:bg-[#F7FAFC] transition-colors"
+              onclick="toggleAccordion('features-filter')"
+            >
+              <span>Features</span>
+              <svg class="w-4 h-4 transform transition-transform" id="features-filter-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path></svg>
+            </button>
+            <div class="p-4 flex flex-col gap-3 text-sm" id="features-filter">
+              <label class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]">
+                <input type="checkbox" value="Metallic" class="feature-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]" />
+                <span>Metallic</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]">
+                <input type="checkbox" value="Plastic" class="feature-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]" />
+                <span>Plastic</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]">
+                <input type="checkbox" value="Leather" class="feature-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]" />
+                <span>Leather</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer text-[#1C1C1C] hover:text-[#127FFF]">
+                <input type="checkbox" value="Smart" class="feature-checkbox w-4 h-4 border-[#E3E8EE] rounded accent-[#127FFF]" />
+                <span>Smart Devices</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Price Range Filter -->
+          <div class="bg-white border border-[#E3E8EE] rounded-lg overflow-hidden">
+            <button
+              class="w-full px-4 py-3 flex justify-between items-center border-b border-[#E3E8EE] font-bold text-sm text-[#1C1C1C] bg-white cursor-pointer hover:bg-[#F7FAFC] transition-colors"
+              onclick="toggleAccordion('price-filter')"
+            >
+              <span>Price Range</span>
+              <svg class="w-4 h-4 transform transition-transform" id="price-filter-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path></svg>
+            </button>
+            <div class="p-4 flex flex-col gap-3" id="price-filter">
+              <div class="flex gap-2">
+                <div class="flex-grow">
+                  <label class="text-xs text-[#8B96A5] block mb-1">Min ($)</label>
+                  <input
+                    type="number"
+                    id="price-min"
+                    placeholder="0"
+                    class="w-full border border-[#E3E8EE] px-3 py-1.5 text-sm rounded-md text-[#1C1C1C] outline-none focus:border-[#127FFF]"
+                  />
+                </div>
+                <div class="flex-grow">
+                  <label class="text-xs text-[#8B96A5] block mb-1">Max ($)</label>
+                  <input
+                    type="number"
+                    id="price-max"
+                    placeholder="9999"
+                    class="w-full border border-[#E3E8EE] px-3 py-1.5 text-sm rounded-md text-[#1C1C1C] outline-none focus:border-[#127FFF]"
+                  />
+                </div>
+              </div>
+              <button
+                onclick="applyPriceFilter()"
+                class="w-full bg-white border border-[#E3E8EE] hover:bg-[#F7FAFC] text-[#127FFF] font-semibold text-sm py-2 rounded-md transition-colors cursor-pointer border-[#127FFF]"
+              >
+                Apply price
+              </button>
+            </div>
+          </div>
+
+          <!-- Ratings Filter Accordion -->
+          <div class="bg-white border border-[#E3E8EE] rounded-lg overflow-hidden">
+            <button
+              class="w-full px-4 py-3 flex justify-between items-center border-b border-[#E3E8EE] font-bold text-sm text-[#1C1C1C] bg-white cursor-pointer hover:bg-[#F7FAFC] transition-colors"
+              onclick="toggleAccordion('rating-filter')"
+            >
+              <span>Ratings</span>
+              <svg class="w-4 h-4 transform transition-transform" id="rating-filter-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path></svg>
+            </button>
+            <div class="p-4 flex flex-col gap-2.5" id="rating-filter">
+              <label class="flex items-center gap-2.5 cursor-pointer text-sm">
+                <input type="radio" name="rating-sel" value="0" checked class="rating-radio accent-[#127FFF]" />
+                <span>All ratings</span>
+              </label>
+              <label class="flex items-center gap-2.5 cursor-pointer text-sm">
+                <input type="radio" name="rating-sel" value="4.5" class="rating-radio accent-[#127FFF]" />
+                <span class="flex gap-1 items-center">
+                  <span class="star-rating">★★★★★</span>
+                  <span class="text-xs text-[#8B96A5]">4.5 & up</span>
+                </span>
+              </label>
+              <label class="flex items-center gap-2.5 cursor-pointer text-sm">
+                <input type="radio" name="rating-sel" value="4" class="rating-radio accent-[#127FFF]" />
+                <span class="flex gap-1 items-center">
+                  <span class="star-rating">★★★★☆</span>
+                  <span class="text-xs text-[#8B96A5]">4.0 & up</span>
+                </span>
+              </label>
+              <label class="flex items-center gap-2.5 cursor-pointer text-sm">
+                <input type="radio" name="rating-sel" value="3" class="rating-radio accent-[#127FFF]" />
+                <span class="flex gap-1 items-center">
+                  <span class="star-rating">★★★☆☆</span>
+                  <span class="text-xs text-[#8B96A5]">3.0 & up</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Reset Filter Button -->
+          <button
+            onclick="clearAllFilters()"
+            class="w-full bg-[#E5F1FF] hover:bg-[#D4E8FF] text-[#127FFF] font-bold text-sm py-2.5 rounded-md transition-colors cursor-pointer flex items-center justify-center gap-2"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+            <span>Reset All Filters</span>
+          </button>
+        </aside>
+
+        <!-- MAIN PRODUCTS GRID/LIST AREA (Right column) -->
+        <div class="flex-grow w-full flex flex-col gap-4">
+          <!-- TOPBAR TOOLBAR -->
+          <div
+            class="bg-white border border-[#E3E8EE] rounded-lg p-3 flex flex-col sm:flex-row gap-3 justify-between items-center"
+          >
+            <!-- Left Info -->
+            <div class="text-sm font-semibold text-[#1C1C1C]">
+              <span id="items-found-count">0</span> items found in <span id="current-cat-display" class="capitalize">All</span>
+            </div>
+
+            <!-- Right Controls -->
+            <div class="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
+              <!-- Sorting dropdown -->
+              <div class="flex items-center gap-2">
+                <label class="text-xs text-[#8B96A5] font-semibold whitespace-nowrap">Sort by:</label>
+                <select
+                  id="sort-select"
+                  class="border border-[#E3E8EE] rounded-md px-3 py-1.5 text-sm text-[#1C1C1C] outline-none bg-white cursor-pointer"
+                >
+                  <option value="featured">Featured</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                  <option value="rating">Rating</option>
+                </select>
+              </div>
+
+              <!-- Grid/List layout toggle -->
+              <div class="flex border border-[#E3E8EE] rounded-md overflow-hidden bg-white shrink-0">
+                <button
+                  id="view-grid-btn"
+                  class="p-2 bg-[#E5F1FF] hover:bg-[#F7FAFC] transition-colors cursor-pointer border-r border-[#E3E8EE] flex items-center justify-center"
+                  aria-label="Grid View"
+                  title="Grid View"
+                >
+                  <!-- Grid Icon SVG -->
+                  <svg class="w-5 h-5 text-[#127FFF]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M4 4h4v4H4V4zm6 0h4v4h-4V4zm6 0h4v4h-4V4zM4 10h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4zM4 16h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4z"/>
+                  </svg>
+                </button>
+                <button
+                  id="view-list-btn"
+                  class="p-2 hover:bg-[#F7FAFC] transition-colors cursor-pointer flex items-center justify-center"
+                  aria-label="List View"
+                  title="List View"
+                >
+                  <!-- List Icon SVG -->
+                  <svg class="w-5 h-5 text-[#8B96A5]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Active Filter Badges Row -->
+          <div class="flex flex-wrap gap-2 text-xs" id="active-badges-row">
+            <!-- Dynamic Badges Appended Here -->
+          </div>
+
+          <!-- PRODUCT LIST CONTAINER -->
+          <div
+            id="products-container"
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5"
+          >
+            <!-- Products Cards loaded dynamically -->
+          </div>
+
+          <!-- BOTTOM PAGINATION & LOAD MORE -->
+          <div
+            class="mt-6 flex flex-col sm:flex-row gap-4 justify-between items-center border border-[#E3E8EE] rounded-lg p-4 bg-white"
+          >
+            <!-- Load More button -->
+            <button
+              id="load-more-btn"
+              onclick="loadMoreProducts()"
+              class="w-full sm:w-auto bg-[#127FFF] hover:bg-[#0067FF] text-white text-sm font-bold py-2.5 px-6 rounded-md transition-all shadow-sm cursor-pointer"
+            >
+              Load More
+            </button>
+
+            <!-- Numeric Pagination -->
+            <div class="flex items-center gap-1.5" id="pagination-container">
+              <!-- Dynamically populated page list -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-[#E3E8EE] mt-12 py-12">
+      <div
+        class="container-custom grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8"
+      >
+        <!-- Brand Summary Column -->
+        <div class="lg:col-span-2 flex flex-col gap-4">
+          <img
+            src="./assets/assets/Layout/Brand/logo-colored.png"
+            alt="Brand Logo"
+            class="h-10 object-contain self-start"
+          />
+          <p class="text-sm text-[#505050] max-w-[280px] leading-relaxed">
+            Best platform to source products for your offline business. High
+            quality items, rapid shipping, and protected payments.
+          </p>
+        </div>
+
+        <!-- Links Column 1 -->
+        <div class="flex flex-col gap-3">
+          <h5 class="text-[#1C1C1C] font-bold text-sm">About</h5>
+          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">About Us</a>
+          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">Find Store</a>
+          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">Categories</a>
+          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">Blogs</a>
+        </div>
+
+        <!-- Links Column 2 -->
+        <div class="flex flex-col gap-3">
+          <h5 class="text-[#1C1C1C] font-bold text-sm">Partnership</h5>
+          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">Supplier Registration</a>
+          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">Merchant Portal</a>
+          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">Affiliate Program</a>
+          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">Custom Sourcing</a>
+        </div>
+
+        <!-- Links Column 3 -->
+        <div class="flex flex-col gap-3">
+          <h5 class="text-[#1C1C1C] font-bold text-sm">Information</h5>
+          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">Help Center</a>
+          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">Refund Policy</a>
+          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">Shipping Info</a>
+          <a href="#" class="text-[#8B96A5] text-sm hover:text-[#127FFF] transition-colors">Contact Us</a>
+        </div>
+
+        <!-- App Download Column -->
+        <div class="flex flex-col gap-3">
+          <h5 class="text-[#1C1C1C] font-bold text-sm">Get App</h5>
+          <div class="flex flex-col gap-2 max-w-[124px]">
+            <a href="#" class="hover:opacity-85 transition-opacity">
+              <img
+                src="./assets/assets/Layout/Misc/market-button.png"
+                alt="App Store"
+                class="w-full"
+              />
+            </a>
+            <a href="#" class="hover:opacity-85 transition-opacity">
+              <img
+                src="./assets/assets/Layout/Misc/Group.png"
+                alt="Google Play"
+                class="w-full"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright Bottom Bar -->
+      <div
+        class="container-custom border-t border-[#E3E8EE] mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4"
+      >
+        <p class="text-sm text-[#505050]">
+          &copy; 2026 BrandStore. All rights reserved.
+        </p>
+        <div class="flex items-center gap-3">
+          <a href="#" class="text-sm text-[#8B96A5] hover:text-[#127FFF] transition-colors">Privacy Policy</a>
+          <a href="#" class="text-sm text-[#8B96A5] hover:text-[#127FFF] transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+      // PRODUCT DATABASE
+      const productsData = [
+        {
+          id: 1,
+          name: "Sony WH-1000XM4 Wireless Noise Canceling Headphones",
+          category: "electronics",
+          brand: "Sony",
+          price: 199.00,
+          originalPrice: 249.99,
+          rating: 4.8,
+          reviewsCount: 154,
+          image: "./assets/assets/Image/tech/image 23.png",
+          description: "Industry-leading noise canceling wireless over-ear headphones with high-fidelity audio, smart voice control, and up to 30 hours of battery life.",
+          features: ["Plastic", "Smart"],
+          shipping: "Free Shipping"
+        },
+        {
+          id: 2,
+          name: "iPhone 13 Pro Max Dual SIM - 256GB Silver",
+          category: "electronics",
+          brand: "Apple",
+          price: 999.00,
+          originalPrice: null,
+          rating: 4.7,
+          reviewsCount: 320,
+          image: "./assets/assets/Image/tech/image 29.png",
+          description: "Stunning Super Retina XDR display with ProMotion, advanced triple camera system, cinematic video mode, and industry-leading performance.",
+          features: ["Metallic", "Smart"],
+          shipping: "Free Shipping"
+        },
+        {
+          id: 3,
+          name: "Canon EOS R6 Mirrorless Digital Camera Body",
+          category: "electronics",
+          brand: "Canon",
+          price: 2499.00,
+          originalPrice: 2699.00,
+          rating: 4.9,
+          reviewsCount: 84,
+          image: "./assets/assets/Image/tech/image 34.png",
+          description: "High-performance full-frame mirrorless camera offering up to 20 fps silent shooting, 4K video recording, and 5-axis image stabilization.",
+          features: ["Metallic", "Smart"],
+          shipping: "Free Shipping"
+        },
+        {
+          id: 4,
+          name: "Xiaomi Mi Band 6 Fitness Tracker Smartwatch",
+          category: "electronics",
+          brand: "Xiaomi",
+          price: 19.00,
+          originalPrice: 24.99,
+          rating: 4.5,
+          reviewsCount: 423,
+          image: "./assets/assets/Image/tech/6.png",
+          description: "Smart fitness tracker with blood oxygen level monitoring, 30 sports workout modes, heart rate tracking, and customized 1.56 inch AMOLED display.",
+          features: ["Plastic", "Smart"],
+          shipping: "Shipping: $4.99"
+        },
+        {
+          id: 5,
+          name: "GoPro Hero 9 Black Action Camera Bundle",
+          category: "electronics",
+          brand: "Sony",
+          price: 299.00,
+          originalPrice: 349.00,
+          rating: 4.8,
+          reviewsCount: 112,
+          image: "./assets/assets/Image/tech/8.png",
+          description: "Rugged waterproof action camera recording stunning 5K video, 20MP photos, touch screen interface, and HyperSmooth 3.0 stabilization.",
+          features: ["Plastic", "Smart"],
+          shipping: "Free Shipping"
+        },
+        {
+          id: 6,
+          name: "Samsung Galaxy Fit 2 Tracker Watch",
+          category: "electronics",
+          brand: "Samsung",
+          price: 49.00,
+          originalPrice: null,
+          rating: 4.2,
+          reviewsCount: 96,
+          image: "./assets/assets/Image/tech/image 32.png",
+          description: "Lightweight, sleek fitness band tracking steps, active minutes, calories burned, and notifications for up to 15 days on a single charge.",
+          features: ["Plastic", "Smart"],
+          shipping: "Shipping: $2.50"
+        },
+        {
+          id: 7,
+          name: "Apple MacBook Pro 14-inch M1 Pro Space Gray",
+          category: "electronics",
+          brand: "Apple",
+          price: 1299.00,
+          originalPrice: 1499.00,
+          rating: 4.9,
+          reviewsCount: 201,
+          image: "./assets/assets/Image/tech/image 33.png",
+          description: "Professional notebook with M1 Pro chip, 16GB unified RAM, Liquid Retina XDR display, and premium speaker sound system.",
+          features: ["Metallic", "Smart"],
+          shipping: "Free Shipping"
+        },
+        {
+          id: 8,
+          name: "Anker PowerWave Pad 15W Wireless Qi Charger",
+          category: "electronics",
+          brand: "Xiaomi",
+          price: 15.00,
+          originalPrice: null,
+          rating: 4.4,
+          reviewsCount: 1250,
+          image: "./assets/assets/Image/tech/image 85.png",
+          description: "High-speed wireless charging pad compatible with iPhone, Galaxy, and all other Qi-enabled smart devices.",
+          features: ["Plastic"],
+          shipping: "Shipping: $1.99"
+        },
+        {
+          id: 9,
+          name: "Baseus 65W GaN Travel Charger Quick Charger",
+          category: "electronics",
+          brand: "Xiaomi",
+          price: 29.00,
+          originalPrice: 35.00,
+          rating: 4.6,
+          reviewsCount: 310,
+          image: "./assets/assets/Layout/alibaba/Image/tech/image 85.png",
+          description: "Gallium Nitride 65W fast charger featuring 3 output ports (2x Type C and 1x USB A) to charge laptop, phone, and tablet simultaneously.",
+          features: ["Plastic"],
+          shipping: "Shipping: $2.00"
+        },
+        {
+          id: 10,
+          name: "Nordic Lounge Soft Armchair with Wooden Legs",
+          category: "interior",
+          brand: "Sony", // Simulated brand for filter matching
+          price: 45.00,
+          originalPrice: 60.00,
+          rating: 4.5,
+          reviewsCount: 65,
+          image: "./assets/assets/Image/interior/1.png",
+          description: "Modern, ergonomic Scandinavian-style soft armchair upholstered in premium breathable linen cloth with sturdy solid wood support frame.",
+          features: ["Metallic", "Leather"],
+          shipping: "Shipping: $15.00"
+        },
+        {
+          id: 11,
+          name: "Velvet Sofa Cushions and Pillows Set of 4",
+          category: "interior",
+          brand: "Xiaomi",
+          price: 9.90,
+          originalPrice: 15.00,
+          rating: 4.3,
+          reviewsCount: 220,
+          image: "./assets/assets/Image/interior/7.png",
+          description: "Luxurious velvet cushion covers available in vibrant, warm colors to decorate your living room, bedroom, or patio benches.",
+          features: ["Leather"],
+          shipping: "Shipping: $3.00"
+        },
+        {
+          id: 12,
+          name: "Professional Multi-Speed Kitchen Stand Mixer",
+          category: "interior",
+          brand: "Samsung",
+          price: 79.00,
+          originalPrice: 99.00,
+          rating: 4.7,
+          reviewsCount: 140,
+          image: "./assets/assets/Image/interior/9.png",
+          description: "Powerful 6-speed electric kitchen mixer with a large stainless steel bowl, dough hooks, wire whisk, and flat beater attachments.",
+          features: ["Metallic"],
+          shipping: "Free Shipping"
+        },
+        {
+          id: 13,
+          name: "Minimalist Modern Stool with Matte Finish",
+          category: "interior",
+          brand: "Sony",
+          price: 24.00,
+          originalPrice: null,
+          rating: 4.1,
+          reviewsCount: 48,
+          image: "./assets/assets/Image/interior/6.png",
+          description: "Clean geometric seating solution that works beautifully as a vanity stool, desk accent chair, or minimalist entryway bench.",
+          features: ["Plastic"],
+          shipping: "Shipping: $5.00"
+        },
+        {
+          id: 14,
+          name: "Wooden Accent Storage Sideboard Cabinet",
+          category: "interior",
+          brand: "Apple",
+          price: 189.00,
+          originalPrice: 219.00,
+          rating: 4.6,
+          reviewsCount: 28,
+          image: "./assets/assets/Image/interior/8.png",
+          description: "Spacious wooden organizer cabinet containing three inner drawers and adjustable shelving to display dining wares or media tech accessories.",
+          features: ["Metallic"],
+          shipping: "Shipping: $29.99"
+        },
+        {
+          id: 15,
+          name: "Nordic Desk Table Reading Lamp - Adjustable Head",
+          category: "interior",
+          brand: "Sony",
+          price: 19.00,
+          originalPrice: 25.00,
+          rating: 4.4,
+          reviewsCount: 88,
+          image: "./assets/assets/Image/interior/image 89.png",
+          description: "Contemporary workspace study lamp featuring a swiveling metal lampshade, protective matte black finish, and warm eye-care light output.",
+          features: ["Metallic"],
+          shipping: "Shipping: $3.99"
+        },
+        {
+          id: 16,
+          name: "Luxury Cotton Quilt Bedding Set",
+          category: "interior",
+          brand: "Xiaomi",
+          price: 49.00,
+          originalPrice: null,
+          rating: 4.5,
+          reviewsCount: 77,
+          image: "./assets/assets/Image/interior/image 93.png",
+          description: "Hypoallergenic double-brushed cotton bedding set including a queen-sized duvet cover and two standard matched pillowcases.",
+          features: [],
+          shipping: "Free Shipping"
+        },
+        {
+          id: 17,
+          name: "Classic Men's Vintage Leather Jacket",
+          category: "clothing",
+          brand: "Sony", // Simulated brand for matching
+          price: 89.00,
+          originalPrice: 110.00,
+          rating: 4.8,
+          reviewsCount: 118,
+          image: "./assets/assets/Layout/alibaba/Image/cloth/2 1.png",
+          description: "Authentic heavy-duty biker leather jacket featuring distressed textures, multiple zipper pockets, and warm polyester interior linings.",
+          features: ["Leather"],
+          shipping: "Free Shipping"
+        },
+        {
+          id: 18,
+          name: "Premium Cotton Casual Crewneck T-Shirt",
+          category: "clothing",
+          brand: "Samsung",
+          price: 12.50,
+          originalPrice: 18.00,
+          rating: 4.2,
+          reviewsCount: 340,
+          image: "./assets/assets/Layout/alibaba/Image/cloth/Bitmap (2).png",
+          description: "Standard fit, ring-spun soft breathable cotton tee that stands up to regular machine washing without losing shapes or colors.",
+          features: [],
+          shipping: "Shipping: $1.99"
+        },
+        {
+          id: 19,
+          name: "Elegant Women's Floral Summer Dress",
+          category: "clothing",
+          brand: "Apple",
+          price: 39.00,
+          originalPrice: null,
+          rating: 4.6,
+          reviewsCount: 92,
+          image: "./assets/assets/Layout/alibaba/Image/cloth/Bitmap.png",
+          description: "Lightweight A-line summer dress featuring a flattering waist band, side slits, and a colorful floral print pattern.",
+          features: [],
+          shipping: "Shipping: $3.00"
+        },
+        {
+          id: 20,
+          name: "Thick Hooded Winter Parka Coat",
+          category: "clothing",
+          brand: "Canon",
+          price: 120.00,
+          originalPrice: 150.00,
+          rating: 4.7,
+          reviewsCount: 63,
+          image: "./assets/assets/Layout/alibaba/Image/cloth/image 24.png",
+          description: "Heavy insulated winter parka with adjustable hood, faux-fur trims, and water-repellent shell to protect against rain, wind, and snow.",
+          features: ["Metallic"],
+          shipping: "Free Shipping"
+        },
+        {
+          id: 21,
+          name: "Slim Fit Classic Stretch Denim Jeans",
+          category: "clothing",
+          brand: "Sony",
+          price: 34.00,
+          originalPrice: 45.00,
+          rating: 4.3,
+          reviewsCount: 154,
+          image: "./assets/assets/Layout/alibaba/Image/cloth/image 26.png",
+          description: "Fitted blue jeans crafted from high-grade cotton-spandex denim to offer excellent flexible stretches and durability for all-day comfort.",
+          features: [],
+          shipping: "Shipping: $4.00"
+        },
+        {
+          id: 22,
+          name: "Unisex Comfort Sports Activewear Set",
+          category: "clothing",
+          brand: "Xiaomi",
+          price: 27.00,
+          originalPrice: null,
+          rating: 4.4,
+          reviewsCount: 88,
+          image: "./assets/assets/Layout/alibaba/Image/cloth/image 30.png",
+          description: "Moisture-wicking athletic hoodie and sweatpants set tailored for gym workout trainings, jogging, and cozy casual lounging.",
+          features: ["Plastic"],
+          shipping: "Shipping: $2.50"
+        }
+      ];
+
+      // STATE MANAGEMENT
+      let currentCategory = "all";
+      let searchKeyword = "";
+      let selectedBrands = [];
+      let selectedFeatures = [];
+      let minPrice = null;
+      let maxPrice = null;
+      let minRating = 0;
+      let sortBy = "featured";
+      let viewMode = "grid"; // "grid" or "list"
+      let currentPage = 1;
+      const itemsPerPage = 6;
+      let favorites = JSON.parse(localStorage.getItem("brandstore_favorites")) || [];
+
+      // DOM ELEMENTS
+      const productsContainer = document.getElementById("products-container");
+      const itemsFoundCount = document.getElementById("items-found-count");
+      const currentCatDisplay = document.getElementById("current-cat-display");
+      const breadcrumbCategory = document.getElementById("breadcrumb-category");
+      
+      const sortSelect = document.getElementById("sort-select");
+      const viewGridBtn = document.getElementById("view-grid-btn");
+      const viewListBtn = document.getElementById("view-list-btn");
+      
+      const priceMinInput = document.getElementById("price-min");
+      const priceMaxInput = document.getElementById("price-max");
+      
+      const activeBadgesRow = document.getElementById("active-badges-row");
+      const paginationContainer = document.getElementById("pagination-container");
+      const loadMoreBtn = document.getElementById("load-more-btn");
+      
+      const headerSearchForm = document.getElementById("header-search-form");
+      const headerSearchInput = document.getElementById("header-search-input");
+      const headerCategorySelect = document.getElementById("header-category-select");
+      const mobileSearchInput = document.getElementById("mobile-search-input");
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- 1. Synced Navigation Dropdowns and Hamburger ---
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const drawerCloseBtn = document.getElementById("drawer-close-btn");
+        const drawerOverlay = document.getElementById("drawer-overlay");
+
+        mobileMenuBtn.addEventListener("click", () => {
+          drawerOverlay.classList.add("open");
+        });
+
+        drawerCloseBtn.addEventListener("click", () => {
+          drawerOverlay.classList.remove("open");
+        });
+
+        drawerOverlay.addEventListener("click", (e) => {
+          if (e.target === drawerOverlay) {
+            drawerOverlay.classList.remove("open");
+          }
+        });
+
+        function setupDropdown(triggerId, menuId) {
+          const trigger = document.getElementById(triggerId);
+          const menu = document.getElementById(menuId);
+          if (!trigger || !menu) return;
+
+          trigger.addEventListener("click", (e) => {
+            e.stopPropagation();
+            document.querySelectorAll(".dropdown-menu-custom").forEach((otherMenu) => {
+              if (otherMenu !== menu) otherMenu.classList.remove("show");
+            });
+            menu.classList.toggle("show");
+          });
+        }
+
+        setupDropdown("help-dropdown", "help-menu");
+        setupDropdown("language-dropdown", "language-menu");
+        setupDropdown("ship-dropdown", "ship-menu");
+
+        document.addEventListener("click", () => {
+          document.querySelectorAll(".dropdown-menu-custom").forEach((menu) => {
+            menu.classList.remove("show");
+          });
+        });
+
+        const languageMenu = document.getElementById("language-menu");
+        const selectedLang = document.getElementById("selected-lang");
+        languageMenu.addEventListener("click", (e) => {
+          const btn = e.target.closest("button");
+          if (btn) {
+            selectedLang.textContent = btn.getAttribute("data-lang");
+          }
+        });
+
+        const shipMenu = document.getElementById("ship-menu");
+        const currentFlag = document.getElementById("current-flag");
+        shipMenu.addEventListener("click", (e) => {
+          const btn = e.target.closest("button");
+          if (btn) {
+            currentFlag.src = `./assets/assets/Layout1/Image/flags/${btn.getAttribute("data-flag")}`;
+            currentFlag.alt = btn.getAttribute("data-country");
+          }
+        });
+
+        // --- 2. View Mode (Grid vs List) ---
+        viewGridBtn.addEventListener("click", () => {
+          viewMode = "grid";
+          viewGridBtn.classList.add("bg-[#E5F1FF]");
+          viewGridBtn.querySelector("svg").classList.add("text-[#127FFF]");
+          viewGridBtn.querySelector("svg").classList.remove("text-[#8B96A5]");
+          
+          viewListBtn.classList.remove("bg-[#E5F1FF]");
+          viewListBtn.querySelector("svg").classList.remove("text-[#127FFF]");
+          viewListBtn.querySelector("svg").classList.add("text-[#8B96A5]");
+          renderProducts();
+        });
+
+        viewListBtn.addEventListener("click", () => {
+          viewMode = "list";
+          viewListBtn.classList.add("bg-[#E5F1FF]");
+          viewListBtn.querySelector("svg").classList.add("text-[#127FFF]");
+          viewListBtn.querySelector("svg").classList.remove("text-[#8B96A5]");
+          
+          viewGridBtn.classList.remove("bg-[#E5F1FF]");
+          viewGridBtn.querySelector("svg").classList.remove("text-[#127FFF]");
+          viewGridBtn.querySelector("svg").classList.add("text-[#8B96A5]");
+          renderProducts();
+        });
+
+        // --- 3. Sorting ---
+        sortSelect.addEventListener("change", (e) => {
+          sortBy = e.target.value;
+          renderProducts();
+        });
+
+        // --- 4. Brand Checkboxes ---
+        document.querySelectorAll(".brand-checkbox").forEach((cb) => {
+          cb.addEventListener("change", () => {
+            selectedBrands = Array.from(document.querySelectorAll(".brand-checkbox:checked")).map(el => el.value);
+            currentPage = 1;
+            renderProducts();
+          });
+        });
+
+        // --- 5. Feature Checkboxes ---
+        document.querySelectorAll(".feature-checkbox").forEach((cb) => {
+          cb.addEventListener("change", () => {
+            selectedFeatures = Array.from(document.querySelectorAll(".feature-checkbox:checked")).map(el => el.value);
+            currentPage = 1;
+            renderProducts();
+          });
+        });
+
+        // --- 6. Rating Radios ---
+        document.querySelectorAll(".rating-radio").forEach((rad) => {
+          rad.addEventListener("change", (e) => {
+            minRating = parseFloat(e.target.value);
+            currentPage = 1;
+            renderProducts();
+          });
+        });
+
+        // --- 7. Search Form Submission ---
+        headerSearchForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          searchKeyword = headerSearchInput.value.trim();
+          const headerCat = headerCategorySelect.value;
+          if (headerCat) {
+            currentCategory = headerCat.toLowerCase();
+          }
+          currentPage = 1;
+          renderProducts();
+        });
+
+        // Sync Search Queries from URL Params
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlCat = urlParams.get("category");
+        const urlSearch = urlParams.get("q");
+        const urlHeaderCat = urlParams.get("categories");
+
+        if (urlCat) {
+          currentCategory = urlCat.toLowerCase();
+        } else if (urlHeaderCat) {
+          currentCategory = urlHeaderCat.toLowerCase();
+          headerCategorySelect.value = urlHeaderCat;
+        }
+
+        if (urlSearch) {
+          searchKeyword = urlSearch;
+          headerSearchInput.value = urlSearch;
+          mobileSearchInput.value = urlSearch;
+        }
+
+        // Initialize display counts
+        updateCategoryCountBadges();
+        setCategoryFilter(currentCategory);
+      });
+
+      // ACCORDION TOGGLE
+      function toggleAccordion(id) {
+        const content = document.getElementById(id);
+        const icon = document.getElementById(id + "-icon");
+        if (content.classList.contains("hidden")) {
+          content.classList.remove("hidden");
+          icon.classList.remove("rotate-180");
+        } else {
+          content.classList.add("hidden");
+          icon.classList.add("rotate-180");
+        }
+      }
+
+      // ACCORDION CATEGORY FILTER
+      function setCategoryFilter(category) {
+        currentCategory = category;
+        currentPage = 1;
+        
+        // Remove active class from categories
+        document.querySelectorAll("#category-filter button").forEach(btn => {
+          btn.classList.remove("font-semibold", "bg-[#E5F1FF]", "text-[#127FFF]");
+        });
+        
+        // Add active classes
+        const activeBtn = document.getElementById("cat-" + category);
+        if (activeBtn) {
+          activeBtn.classList.add("font-semibold", "bg-[#E5F1FF]", "text-[#127FFF]");
+        }
+
+        // Sync header select
+        if (category === "all") {
+          headerCategorySelect.value = "";
+        } else {
+          // Capitalize first letter to match select values
+          headerCategorySelect.value = category.charAt(0).toUpperCase() + category.slice(1);
+        }
+
+        renderProducts();
+      }
+
+      // PRICE FILTER
+      function applyPriceFilter() {
+        minPrice = parseFloat(priceMinInput.value) || null;
+        maxPrice = parseFloat(priceMaxInput.value) || null;
+        currentPage = 1;
+        renderProducts();
+      }
+
+      // CLEAR ALL FILTERS
+      function clearAllFilters() {
+        currentCategory = "all";
+        searchKeyword = "";
+        selectedBrands = [];
+        selectedFeatures = [];
+        minPrice = null;
+        maxPrice = null;
+        minRating = 0;
+        sortBy = "featured";
+        currentPage = 1;
+
+        // Reset sidebar inputs
+        priceMinInput.value = "";
+        priceMaxInput.value = "";
+        headerSearchInput.value = "";
+        mobileSearchInput.value = "";
+        headerCategorySelect.value = "";
+        sortSelect.value = "featured";
+
+        document.querySelectorAll(".brand-checkbox").forEach(cb => cb.checked = false);
+        document.querySelectorAll(".feature-checkbox").forEach(cb => cb.checked = false);
+        document.querySelector(".rating-radio[value='0']").checked = true;
+
+        // Reset category styles
+        document.querySelectorAll("#category-filter button").forEach(btn => {
+          btn.classList.remove("font-semibold", "bg-[#E5F1FF]", "text-[#127FFF]");
+        });
+        document.getElementById("cat-all").classList.add("font-semibold", "bg-[#E5F1FF]", "text-[#127FFF]");
+
+        renderProducts();
+      }
+
+      // CATEGORY COUNTS DISPLAY
+      function updateCategoryCountBadges() {
+        const countAll = productsData.length;
+        const countElec = productsData.filter(p => p.category === "electronics").length;
+        const countCloth = productsData.filter(p => p.category === "clothing").length;
+        const countInt = productsData.filter(p => p.category === "interior").length;
+
+        document.getElementById("count-all").textContent = countAll;
+        document.getElementById("count-electronics").textContent = countElec;
+        document.getElementById("count-clothing").textContent = countCloth;
+        document.getElementById("count-interior").textContent = countInt;
+      }
+
+      // FILTER & SORT LOGIC
+      function getFilteredProducts() {
+        let list = [...productsData];
+
+        // 1. Category
+        if (currentCategory !== "all") {
+          list = list.filter(p => p.category === currentCategory);
+        }
+
+        // 2. Search Keyword
+        if (searchKeyword) {
+          const kw = searchKeyword.toLowerCase();
+          list = list.filter(p => p.name.toLowerCase().includes(kw) || p.description.toLowerCase().includes(kw));
+        }
+
+        // 3. Brands
+        if (selectedBrands.length > 0) {
+          list = list.filter(p => selectedBrands.includes(p.brand));
+        }
+
+        // 4. Features
+        if (selectedFeatures.length > 0) {
+          list = list.filter(p => p.features && p.features.some(f => selectedFeatures.includes(f)));
+        }
+
+        // 5. Price Min/Max
+        if (minPrice !== null) {
+          list = list.filter(p => p.price >= minPrice);
+        }
+        if (maxPrice !== null) {
+          list = list.filter(p => p.price <= maxPrice);
+        }
+
+        // 6. Rating
+        if (minRating > 0) {
+          list = list.filter(p => p.rating >= minRating);
+        }
+
+        // 7. Sort
+        if (sortBy === "price-asc") {
+          list.sort((a, b) => a.price - b.price);
+        } else if (sortBy === "price-desc") {
+          list.sort((a, b) => b.price - a.price);
+        } else if (sortBy === "rating") {
+          list.sort((a, b) => b.rating - a.rating);
+        }
+
+        return list;
+      }
+
+      // UPDATE ACTIVE FILTER BADGES ROW
+      function renderActiveBadges() {
+        activeBadgesRow.innerHTML = "";
+        
+        const createBadge = (text, onClick) => {
+          const badge = document.createElement("div");
+          badge.className = "flex items-center gap-1 bg-white border border-[#E3E8EE] px-2.5 py-1 rounded-full text-[#1C1C1C] hover:border-[#127FFF] transition-colors";
+          badge.innerHTML = `
+            <span>${text}</span>
+            <button class="text-[#8B96A5] hover:text-red-500 font-bold ml-1 cursor-pointer">×</button>
+          `;
+          badge.querySelector("button").addEventListener("click", onClick);
+          activeBadgesRow.appendChild(badge);
+        };
+
+        if (currentCategory !== "all") {
+          createBadge(`Category: ${currentCategory}`, () => setCategoryFilter("all"));
+        }
+        if (searchKeyword) {
+          createBadge(`Search: "${searchKeyword}"`, () => {
+            searchKeyword = "";
+            headerSearchInput.value = "";
+            mobileSearchInput.value = "";
+            renderProducts();
+          });
+        }
+        selectedBrands.forEach(b => {
+          createBadge(`Brand: ${b}`, () => {
+            const cb = Array.from(document.querySelectorAll(".brand-checkbox")).find(c => c.value === b);
+            if (cb) cb.click();
+          });
+        });
+        selectedFeatures.forEach(f => {
+          createBadge(`Feature: ${f}`, () => {
+            const cb = Array.from(document.querySelectorAll(".feature-checkbox")).find(c => c.value === f);
+            if (cb) cb.click();
+          });
+        });
+        if (minPrice !== null || maxPrice !== null) {
+          let priceText = "";
+          if (minPrice !== null && maxPrice !== null) priceText = `$${minPrice} - $${maxPrice}`;
+          else if (minPrice !== null) priceText = `> $${minPrice}`;
+          else if (maxPrice !== null) priceText = `< $${maxPrice}`;
+          createBadge(priceText, () => {
+            minPrice = null;
+            maxPrice = null;
+            priceMinInput.value = "";
+            priceMaxInput.value = "";
+            renderProducts();
+          });
+        }
+        if (minRating > 0) {
+          createBadge(`Rating: ${minRating}★+`, () => {
+            document.querySelector(".rating-radio[value='0']").click();
+          });
+        }
+      }
+
+      // PRODUCT RENDERING
+      function renderProducts() {
+        const filteredList = getFilteredProducts();
+        
+        // Sync Display Headers
+        itemsFoundCount.textContent = filteredList.length;
+        currentCatDisplay.textContent = currentCategory === "all" ? "All Products" : currentCategory;
+        breadcrumbCategory.textContent = currentCategory === "all" ? "All Products" : currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1);
+
+        renderActiveBadges();
+
+        // Handle empty view
+        if (filteredList.length === 0) {
+          productsContainer.className = "flex flex-col items-center justify-center py-12 bg-white border border-[#E3E8EE] rounded-lg w-full";
+          productsContainer.innerHTML = `
+            <svg class="w-16 h-16 text-[#8B96A5] mb-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <h3 class="text-[#1C1C1C] font-bold text-lg mb-1">No products found</h3>
+            <p class="text-sm text-[#8B96A5] mb-4">Try clearing filters or checking your search keywords.</p>
+            <button onclick="clearAllFilters()" class="bg-[#127FFF] text-white font-semibold text-sm px-6 py-2.5 rounded-md hover:bg-[#0067FF] transition-colors cursor-pointer">Clear all filters</button>
+          `;
+          paginationContainer.innerHTML = "";
+          loadMoreBtn.classList.add("hidden");
+          return;
+        }
+
+        // Apply pagination paging limit
+        const totalItems = filteredList.length;
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+        
+        // Boundaries checks
+        if (currentPage > totalPages) currentPage = totalPages;
+        if (currentPage < 1) currentPage = 1;
+
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const slicedProducts = filteredList.slice(startIndex, startIndex + itemsPerPage);
+
+        // Grid vs List view classes
+        if (viewMode === "grid") {
+          productsContainer.className = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 w-full";
+        } else {
+          productsContainer.className = "flex flex-col gap-4 w-full";
+        }
+
+        productsContainer.innerHTML = "";
+
+        slicedProducts.forEach(p => {
+          const isFav = favorites.includes(p.id);
+          const hasOriginalPrice = p.originalPrice !== null;
+          const starsHtml = "★".repeat(Math.round(p.rating)) + "☆".repeat(5 - Math.round(p.rating));
+          
+          if (viewMode === "grid") {
+            const gridCard = document.createElement("div");
+            gridCard.className = "bg-white border border-[#E3E8EE] rounded-lg p-4 flex flex-col justify-between hover:shadow-md transition-shadow duration-200 group relative";
+            gridCard.innerHTML = `
+              <!-- Heart Wishlist icon -->
+              <button 
+                onclick="toggleFavorite(${p.id}, event)" 
+                class="absolute top-3 right-3 w-8 h-8 rounded-full border border-[#E3E8EE] flex items-center justify-center bg-white hover:bg-[#FFE3E3] transition-colors shadow-sm cursor-pointer z-10"
+                aria-label="Add to Wishlist"
+              >
+                <svg class="w-[18px] h-[18px] ${isFav ? 'text-red-500 fill-current' : 'text-[#8B96A5]'}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+              </button>
+
+              <!-- Image container -->
+              <div class="h-[150px] w-full flex items-center justify-center bg-white mb-3">
+                <img src="${p.image}" alt="${p.name}" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-200" />
+              </div>
+
+              <!-- Product Info details -->
+              <div class="flex flex-col gap-1.5 flex-grow justify-end">
+                <span class="text-xs text-[#8B96A5] uppercase tracking-wider font-semibold">${p.brand}</span>
+                <h4 class="text-[#1C1C1C] text-sm font-medium leading-snug line-clamp-2 h-[40px] hover:text-[#127FFF] cursor-pointer" title="${p.name}">${p.name}</h4>
+                
+                <div class="flex items-baseline gap-2 mt-1">
+                  <span class="text-[#1C1C1C] font-bold text-base">$${p.price.toFixed(2)}</span>
+                  ${hasOriginalPrice ? `<span class="text-[#8B96A5] text-xs line-through">$${p.originalPrice.toFixed(2)}</span>` : ""}
+                </div>
+
+                <div class="flex items-center gap-1.5 mt-0.5">
+                  <span class="star-rating text-sm">${starsHtml}</span>
+                  <span class="text-xs text-[#8B96A5] font-semibold">${p.rating} (${p.reviewsCount})</span>
+                </div>
+                
+                <span class="text-xs text-[#55BD90] font-medium mt-1">${p.shipping}</span>
+
+                <button 
+                  onclick="buyNowProduct(${p.id})"
+                  class="bg-[#127FFF] text-white py-2 rounded-md font-semibold text-sm hover:bg-[#0067FF] transition-all hover:scale-[1.02] active:scale-[0.98] duration-150 text-center shadow-sm cursor-pointer block w-full mt-2"
+                >
+                  Buy Now
+                </button>
+              </div>
+            `;
+            productsContainer.appendChild(gridCard);
+          } else {
+            // LIST VIEW CARD
+            const listCard = document.createElement("div");
+            listCard.className = "bg-white border border-[#E3E8EE] rounded-lg p-5 flex flex-col md:flex-row gap-5 hover:shadow-md transition-shadow duration-200 group relative w-full";
+            listCard.innerHTML = `
+              <!-- Left: Image Area -->
+              <div class="w-full md:w-[180px] h-[150px] shrink-0 bg-white flex items-center justify-center relative rounded border border-[#F1F2F4]">
+                <img src="${p.image}" alt="${p.name}" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-200" />
+              </div>
+
+              <!-- Center/Right Details -->
+              <div class="flex-grow flex flex-col md:flex-row justify-between gap-4">
+                <!-- Middle Text Description -->
+                <div class="flex flex-col gap-2 max-w-[480px]">
+                  <span class="text-xs text-[#8B96A5] uppercase tracking-wider font-semibold">${p.brand}</span>
+                  <h4 class="text-[#1C1C1C] text-base font-bold leading-snug hover:text-[#127FFF] cursor-pointer">${p.name}</h4>
+                  
+                  <div class="flex items-center gap-2">
+                    <span class="star-rating text-sm">${starsHtml}</span>
+                    <span class="text-xs text-[#8B96A5] font-semibold">${p.rating} (${p.reviewsCount} reviews)</span>
+                  </div>
+
+                  <p class="text-xs text-[#505050] leading-relaxed line-clamp-3">${p.description}</p>
+                  
+                  <div class="flex gap-2 mt-1">
+                    ${p.features.map(f => `<span class="bg-[#F1F2F4] text-[#505050] text-[10px] font-semibold px-2 py-0.5 rounded">${f}</span>`).join('')}
+                  </div>
+                </div>
+
+                <!-- Right Price and Buttons block -->
+                <div class="md:w-[150px] flex flex-col md:items-end justify-between border-t md:border-t-0 md:border-l border-[#E3E8EE] pt-4 md:pt-0 md:pl-5 shrink-0">
+                  <div class="flex flex-col md:items-end gap-1">
+                    <span class="text-[#1C1C1C] font-bold text-xl">$${p.price.toFixed(2)}</span>
+                    ${hasOriginalPrice ? `<span class="text-[#8B96A5] text-sm line-through">$${p.originalPrice.toFixed(2)}</span>` : ""}
+                    <span class="text-xs text-[#55BD90] font-medium mt-1">${p.shipping}</span>
+                  </div>
+
+                  <div class="flex md:flex-col gap-3 w-full mt-4 md:mt-0">
+                    <button 
+                      onclick="buyNowProduct(${p.id})"
+                      class="flex-grow md:flex-grow-0 bg-[#127FFF] text-white py-2 px-4 rounded-md font-semibold text-xs hover:bg-[#0067FF] transition-all hover:scale-[1.02] active:scale-[0.98] duration-150 text-center shadow-sm cursor-pointer"
+                    >
+                      Buy Now
+                    </button>
+                    <button 
+                      onclick="toggleFavorite(${p.id}, event)"
+                      class="flex items-center justify-center gap-2 border border-[#E3E8EE] bg-white text-[#127FFF] hover:bg-[#FFE3E3] py-2 px-3 rounded-md text-xs font-semibold transition-colors cursor-pointer"
+                    >
+                      <svg class="w-4 h-4 ${isFav ? 'text-red-500 fill-current' : 'text-[#127FFF]'}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                      </svg>
+                      <span>${isFav ? 'Favorited' : 'Save'}</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            `;
+            productsContainer.appendChild(listCard);
+          }
+        });
+
+        renderPagination(totalPages);
+      }
+
+      // PAGINATION BUILD
+      function renderPagination(totalPages) {
+        paginationContainer.innerHTML = "";
+
+        if (totalPages <= 1) {
+          loadMoreBtn.classList.add("hidden");
+          return;
+        } else {
+          loadMoreBtn.classList.remove("hidden");
+        }
+
+        // Prev button
+        const prevBtn = document.createElement("button");
+        prevBtn.className = `p-2 border border-[#E3E8EE] rounded-md transition-colors flex items-center justify-center bg-white ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#F7FAFC] cursor-pointer'}`;
+        prevBtn.innerHTML = `<svg class="w-4 h-4 text-[#1C1C1C]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>`;
+        if (currentPage > 1) {
+          prevBtn.addEventListener("click", () => {
+            currentPage--;
+            renderProducts();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        }
+        paginationContainer.appendChild(prevBtn);
+
+        // Page buttons
+        for (let i = 1; i <= totalPages; i++) {
+          const pageBtn = document.createElement("button");
+          const isActive = currentPage === i;
+          pageBtn.className = `w-9 h-9 border rounded-md font-semibold text-sm flex items-center justify-center transition-all cursor-pointer ${isActive ? 'bg-[#127FFF] border-[#127FFF] text-white shadow-sm' : 'bg-white border-[#E3E8EE] text-[#1C1C1C] hover:bg-[#F7FAFC]'}`;
+          pageBtn.textContent = i;
+          pageBtn.addEventListener("click", () => {
+            currentPage = i;
+            renderProducts();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+          paginationContainer.appendChild(pageBtn);
+        }
+
+        // Next button
+        const nextBtn = document.createElement("button");
+        nextBtn.className = `p-2 border border-[#E3E8EE] rounded-md transition-colors flex items-center justify-center bg-white ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#F7FAFC] cursor-pointer'}`;
+        nextBtn.innerHTML = `<svg class="w-4 h-4 text-[#1C1C1C]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>`;
+        if (currentPage < totalPages) {
+          nextBtn.addEventListener("click", () => {
+            currentPage++;
+            renderProducts();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        }
+        paginationContainer.appendChild(nextBtn);
+      }
+
+      // LOAD MORE FUNCTIONALITY
+      function loadMoreProducts() {
+        const filteredList = getFilteredProducts();
+        const totalItems = filteredList.length;
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+        if (currentPage < totalPages) {
+          currentPage++;
+          
+          // Instead of wiping view, we append elements in load more style
+          const startIndex = (currentPage - 1) * itemsPerPage;
+          const slicedProducts = filteredList.slice(startIndex, startIndex + itemsPerPage);
+
+          slicedProducts.forEach(p => {
+            const isFav = favorites.includes(p.id);
+            const hasOriginalPrice = p.originalPrice !== null;
+            const starsHtml = "★".repeat(Math.round(p.rating)) + "☆".repeat(5 - Math.round(p.rating));
+            
+            if (viewMode === "grid") {
+              const gridCard = document.createElement("div");
+              gridCard.className = "bg-white border border-[#E3E8EE] rounded-lg p-4 flex flex-col justify-between hover:shadow-md transition-shadow duration-200 group relative";
+              gridCard.innerHTML = `
+                <button 
+                  onclick="toggleFavorite(${p.id}, event)" 
+                  class="absolute top-3 right-3 w-8 h-8 rounded-full border border-[#E3E8EE] flex items-center justify-center bg-white hover:bg-[#FFE3E3] transition-colors shadow-sm cursor-pointer z-10"
+                  aria-label="Add to Wishlist"
+                >
+                  <svg class="w-[18px] h-[18px] ${isFav ? 'text-red-500 fill-current' : 'text-[#8B96A5]'}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                  </svg>
+                </button>
+
+                <div class="h-[150px] w-full flex items-center justify-center bg-white mb-3">
+                  <img src="${p.image}" alt="${p.name}" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-200" />
+                </div>
+
+                <div class="flex flex-col gap-1.5 flex-grow justify-end">
+                  <span class="text-xs text-[#8B96A5] uppercase tracking-wider font-semibold">${p.brand}</span>
+                  <h4 class="text-[#1C1C1C] text-sm font-medium leading-snug line-clamp-2 h-[40px] hover:text-[#127FFF] cursor-pointer" title="${p.name}">${p.name}</h4>
+                  
+                  <div class="flex items-baseline gap-2 mt-1">
+                    <span class="text-[#1C1C1C] font-bold text-base">$${p.price.toFixed(2)}</span>
+                    ${hasOriginalPrice ? `<span class="text-[#8B96A5] text-xs line-through">$${p.originalPrice.toFixed(2)}</span>` : ""}
+                  </div>
+
+                  <div class="flex items-center gap-1.5 mt-0.5">
+                    <span class="star-rating text-sm">${starsHtml}</span>
+                    <span class="text-xs text-[#8B96A5] font-semibold">${p.rating} (${p.reviewsCount})</span>
+                  </div>
+                  
+                  <span class="text-xs text-[#55BD90] font-medium mt-1">${p.shipping}</span>
+
+                  <button 
+                    onclick="buyNowProduct(${p.id})"
+                    class="bg-[#127FFF] text-white py-2 rounded-md font-semibold text-sm hover:bg-[#0067FF] transition-all hover:scale-[1.02] active:scale-[0.98] duration-150 text-center shadow-sm cursor-pointer block w-full mt-2"
+                  >
+                    Buy Now
+                  </button>
+                </div>
+              `;
+              productsContainer.appendChild(gridCard);
+            } else {
+              const listCard = document.createElement("div");
+              listCard.className = "bg-white border border-[#E3E8EE] rounded-lg p-5 flex flex-col md:flex-row gap-5 hover:shadow-md transition-shadow duration-200 group relative w-full";
+              listCard.innerHTML = `
+                <div class="w-full md:w-[180px] h-[150px] shrink-0 bg-white flex items-center justify-center relative rounded border border-[#F1F2F4]">
+                  <img src="${p.image}" alt="${p.name}" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-200" />
+                </div>
+
+                <div class="flex-grow flex flex-col md:flex-row justify-between gap-4">
+                  <div class="flex flex-col gap-2 max-w-[480px]">
+                    <span class="text-xs text-[#8B96A5] uppercase tracking-wider font-semibold">${p.brand}</span>
+                    <h4 class="text-[#1C1C1C] text-base font-bold leading-snug hover:text-[#127FFF] cursor-pointer">${p.name}</h4>
+                    
+                    <div class="flex items-center gap-2">
+                      <span class="star-rating text-sm">${starsHtml}</span>
+                      <span class="text-xs text-[#8B96A5] font-semibold">${p.rating} (${p.reviewsCount} reviews)</span>
+                    </div>
+
+                    <p class="text-xs text-[#505050] leading-relaxed line-clamp-3">${p.description}</p>
+                    
+                    <div class="flex gap-2 mt-1">
+                      ${p.features.map(f => `<span class="bg-[#F1F2F4] text-[#505050] text-[10px] font-semibold px-2 py-0.5 rounded">${f}</span>`).join('')}
+                    </div>
+                  </div>
+
+                  <div class="md:w-[150px] flex flex-col md:items-end justify-between border-t md:border-t-0 md:border-l border-[#E3E8EE] pt-4 md:pt-0 md:pl-5 shrink-0">
+                    <div class="flex flex-col md:items-end gap-1">
+                      <span class="text-[#1C1C1C] font-bold text-xl">$${p.price.toFixed(2)}</span>
+                      ${hasOriginalPrice ? `<span class="text-[#8B96A5] text-sm line-through">$${p.originalPrice.toFixed(2)}</span>` : ""}
+                      <span class="text-xs text-[#55BD90] font-medium mt-1">${p.shipping}</span>
+                    </div>
+
+                    <div class="flex md:flex-col gap-3 w-full mt-4 md:mt-0">
+                      <button 
+                        onclick="buyNowProduct(${p.id})"
+                        class="flex-grow md:flex-grow-0 bg-[#127FFF] text-white py-2 px-4 rounded-md font-semibold text-xs hover:bg-[#0067FF] transition-all hover:scale-[1.02] active:scale-[0.98] duration-150 text-center shadow-sm cursor-pointer"
+                      >
+                        Buy Now
+                      </button>
+                      <button 
+                        onclick="toggleFavorite(${p.id}, event)"
+                        class="flex items-center justify-center gap-2 border border-[#E3E8EE] bg-white text-[#127FFF] hover:bg-[#FFE3E3] py-2 px-3 rounded-md text-xs font-semibold transition-colors cursor-pointer"
+                      >
+                        <svg class="w-4 h-4 ${isFav ? 'text-red-500 fill-current' : 'text-[#127FFF]'}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                        <span>${isFav ? 'Favorited' : 'Save'}</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              `;
+              productsContainer.appendChild(listCard);
+            }
+          });
+
+          // Sync pagination buttons
+          renderPagination(totalPages);
+        }
+      }
+
+      // WISHLIST MANAGEMENT
+      function toggleFavorite(id, event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const index = favorites.indexOf(id);
+        if (index > -1) {
+          favorites.splice(index, 1);
+        } else {
+          favorites.push(id);
+        }
+        localStorage.setItem("brandstore_favorites", JSON.stringify(favorites));
+        renderProducts();
+      }
+
+      // CART MANAGEMENT / BUY NOW ACTION
+      let cartCount = 0;
+      function buyNowProduct(id) {
+        const prod = productsData.find(p => p.id === id);
+        if (prod) {
+          cartCount++;
+          const badge = document.getElementById("cart-count-badge");
+          badge.textContent = cartCount;
+          badge.classList.remove("hidden");
+          
+          // Toast notifications
+          showNotification(`Added "${prod.name}" to cart!`);
+        }
+      }
+
+      // NOTIFICATION TOAST POPUP
+      function showNotification(message) {
+        const container = document.createElement("div");
+        container.className = "fixed bottom-5 right-5 bg-[#1C1C1C] text-white px-4 py-3 rounded-lg shadow-xl z-50 text-sm font-semibold flex items-center gap-3 transform translate-y-10 opacity-0 transition-all duration-300";
+        container.innerHTML = `
+          <svg class="w-5 h-5 text-[#55BD90]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <span>${message}</span>
+        `;
+        document.body.appendChild(container);
+        
+        // Trigger animations
+        setTimeout(() => {
+          container.classList.remove("translate-y-10", "opacity-0");
+        }, 50);
+
+        // Hide and remove
+        setTimeout(() => {
+          container.classList.add("translate-y-10", "opacity-0");
+          setTimeout(() => {
+            container.remove();
+          }, 300);
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
